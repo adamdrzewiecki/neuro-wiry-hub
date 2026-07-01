@@ -23,6 +23,7 @@ import { Route as MozdzekRouteImport } from './routes/mozdzek'
 import { Route as MiedzymozgowieRouteImport } from './routes/miedzymozgowie'
 import { Route as KresomozgowieSrodkoweIKomoraBocznaRouteImport } from './routes/kresomozgowie-srodkowe-i-komora-boczna'
 import { Route as KresomozgowieParzysteRouteImport } from './routes/kresomozgowie-parzyste'
+import { Route as KresomozgowieRouteImport } from './routes/kresomozgowie'
 import { Route as KomoraIvRouteImport } from './routes/komora-iv'
 import { Route as JadraPodstawyRouteImport } from './routes/jadra-podstawy'
 import { Route as IstotaBialaRouteImport } from './routes/istota-biala'
@@ -104,6 +105,11 @@ const KresomozgowieParzysteRoute = KresomozgowieParzysteRouteImport.update({
   path: '/kresomozgowie-parzyste',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KresomozgowieRoute = KresomozgowieRouteImport.update({
+  id: '/kresomozgowie',
+  path: '/kresomozgowie',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KomoraIvRoute = KomoraIvRouteImport.update({
   id: '/komora-iv',
   path: '/komora-iv',
@@ -155,6 +161,7 @@ export interface FileRoutesByFullPath {
   '/istota-biala': typeof IstotaBialaRoute
   '/jadra-podstawy': typeof JadraPodstawyRoute
   '/komora-iv': typeof KomoraIvRoute
+  '/kresomozgowie': typeof KresomozgowieRoute
   '/kresomozgowie-parzyste': typeof KresomozgowieParzysteRoute
   '/kresomozgowie-srodkowe-i-komora-boczna': typeof KresomozgowieSrodkoweIKomoraBocznaRoute
   '/miedzymozgowie': typeof MiedzymozgowieRoute
@@ -179,6 +186,7 @@ export interface FileRoutesByTo {
   '/istota-biala': typeof IstotaBialaRoute
   '/jadra-podstawy': typeof JadraPodstawyRoute
   '/komora-iv': typeof KomoraIvRoute
+  '/kresomozgowie': typeof KresomozgowieRoute
   '/kresomozgowie-parzyste': typeof KresomozgowieParzysteRoute
   '/kresomozgowie-srodkowe-i-komora-boczna': typeof KresomozgowieSrodkoweIKomoraBocznaRoute
   '/miedzymozgowie': typeof MiedzymozgowieRoute
@@ -204,6 +212,7 @@ export interface FileRoutesById {
   '/istota-biala': typeof IstotaBialaRoute
   '/jadra-podstawy': typeof JadraPodstawyRoute
   '/komora-iv': typeof KomoraIvRoute
+  '/kresomozgowie': typeof KresomozgowieRoute
   '/kresomozgowie-parzyste': typeof KresomozgowieParzysteRoute
   '/kresomozgowie-srodkowe-i-komora-boczna': typeof KresomozgowieSrodkoweIKomoraBocznaRoute
   '/miedzymozgowie': typeof MiedzymozgowieRoute
@@ -230,6 +239,7 @@ export interface FileRouteTypes {
     | '/istota-biala'
     | '/jadra-podstawy'
     | '/komora-iv'
+    | '/kresomozgowie'
     | '/kresomozgowie-parzyste'
     | '/kresomozgowie-srodkowe-i-komora-boczna'
     | '/miedzymozgowie'
@@ -254,6 +264,7 @@ export interface FileRouteTypes {
     | '/istota-biala'
     | '/jadra-podstawy'
     | '/komora-iv'
+    | '/kresomozgowie'
     | '/kresomozgowie-parzyste'
     | '/kresomozgowie-srodkowe-i-komora-boczna'
     | '/miedzymozgowie'
@@ -278,6 +289,7 @@ export interface FileRouteTypes {
     | '/istota-biala'
     | '/jadra-podstawy'
     | '/komora-iv'
+    | '/kresomozgowie'
     | '/kresomozgowie-parzyste'
     | '/kresomozgowie-srodkowe-i-komora-boczna'
     | '/miedzymozgowie'
@@ -303,6 +315,7 @@ export interface RootRouteChildren {
   IstotaBialaRoute: typeof IstotaBialaRoute
   JadraPodstawyRoute: typeof JadraPodstawyRoute
   KomoraIvRoute: typeof KomoraIvRoute
+  KresomozgowieRoute: typeof KresomozgowieRoute
   KresomozgowieParzysteRoute: typeof KresomozgowieParzysteRoute
   KresomozgowieSrodkoweIKomoraBocznaRoute: typeof KresomozgowieSrodkoweIKomoraBocznaRoute
   MiedzymozgowieRoute: typeof MiedzymozgowieRoute
@@ -419,6 +432,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KresomozgowieParzysteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kresomozgowie': {
+      id: '/kresomozgowie'
+      path: '/kresomozgowie'
+      fullPath: '/kresomozgowie'
+      preLoaderRoute: typeof KresomozgowieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/komora-iv': {
       id: '/komora-iv'
       path: '/komora-iv'
@@ -487,6 +507,7 @@ const rootRouteChildren: RootRouteChildren = {
   IstotaBialaRoute: IstotaBialaRoute,
   JadraPodstawyRoute: JadraPodstawyRoute,
   KomoraIvRoute: KomoraIvRoute,
+  KresomozgowieRoute: KresomozgowieRoute,
   KresomozgowieParzysteRoute: KresomozgowieParzysteRoute,
   KresomozgowieSrodkoweIKomoraBocznaRoute:
     KresomozgowieSrodkoweIKomoraBocznaRoute,
