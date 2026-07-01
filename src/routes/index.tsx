@@ -35,7 +35,7 @@ function HomePage() {
             </h1>
 
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-              NeuroPsychole zawsze przyjmą z otwartymi aksonami.
+              NeuroPsychole zawsze przyjmą z otwartymi aksonami!
             </p>
           </div>
         </section>
@@ -47,19 +47,16 @@ function HomePage() {
                 <Link
                   key={category.slug}
                   to={`/${category.slug}`}
-                  className="group relative flex min-h-[120px] flex-col items-start justify-between overflow-hidden rounded-[var(--radius)] bg-card p-5 shadow-sm ring-1 ring-border/50 transition-all duration-300 hover:-translate-y-1 hover:bg-card hover:shadow-lg hover:shadow-primary/8 hover:ring-primary/20"
+                  className="group relative flex flex-col items-start overflow-hidden rounded-[var(--radius)] bg-primary p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20"
                   style={{
                     animation: `fadeInUp 0.5s ease-out ${index * 30}ms both`,
                   }}
                 >
-                  <span className="text-sm font-medium text-muted-foreground">
-                    {(index + 1).toString().padStart(2, "0")}
-                  </span>
-                  <span className="mt-2 font-display text-base font-semibold leading-snug text-card-foreground transition-colors group-hover:text-primary sm:text-lg">
+                  <span className="font-display text-base font-semibold leading-snug text-primary-foreground">
                     {category.title}
                   </span>
-                  <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-                    <ChevronRight className="h-5 w-5 text-primary" />
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                    <ChevronRight className="h-5 w-5 text-primary-foreground/80" />
                   </div>
                 </Link>
               ))}
