@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as UkladPozapiramidowyRouteImport } from './routes/uklad-pozapiramidowy'
 import { Route as UkladNerwowyAutonomicznyRouteImport } from './routes/uklad-nerwowy-autonomiczny'
 import { Route as UkladLimbicznyRouteImport } from './routes/uklad-limbiczny'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RdzenKregowyRouteImport } from './routes/rdzen-kregowy'
 import { Route as PienMozguRouteImport } from './routes/pien-mozgu'
 import { Route as OgolneRouteImport } from './routes/ogolne'
@@ -44,6 +45,11 @@ const UkladNerwowyAutonomicznyRoute =
 const UkladLimbicznyRoute = UkladLimbicznyRouteImport.update({
   id: '/uklad-limbiczny',
   path: '/uklad-limbiczny',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RdzenKregowyRoute = RdzenKregowyRouteImport.update({
@@ -152,6 +158,7 @@ export interface FileRoutesByFullPath {
   '/ogolne': typeof OgolneRoute
   '/pien-mozgu': typeof PienMozguRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/uklad-limbiczny': typeof UkladLimbicznyRoute
   '/uklad-nerwowy-autonomiczny': typeof UkladNerwowyAutonomicznyRoute
   '/uklad-pozapiramidowy': typeof UkladPozapiramidowyRoute
@@ -174,6 +181,7 @@ export interface FileRoutesByTo {
   '/ogolne': typeof OgolneRoute
   '/pien-mozgu': typeof PienMozguRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/uklad-limbiczny': typeof UkladLimbicznyRoute
   '/uklad-nerwowy-autonomiczny': typeof UkladNerwowyAutonomicznyRoute
   '/uklad-pozapiramidowy': typeof UkladPozapiramidowyRoute
@@ -197,6 +205,7 @@ export interface FileRoutesById {
   '/ogolne': typeof OgolneRoute
   '/pien-mozgu': typeof PienMozguRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/uklad-limbiczny': typeof UkladLimbicznyRoute
   '/uklad-nerwowy-autonomiczny': typeof UkladNerwowyAutonomicznyRoute
   '/uklad-pozapiramidowy': typeof UkladPozapiramidowyRoute
@@ -221,6 +230,7 @@ export interface FileRouteTypes {
     | '/ogolne'
     | '/pien-mozgu'
     | '/rdzen-kregowy'
+    | '/sitemap.xml'
     | '/uklad-limbiczny'
     | '/uklad-nerwowy-autonomiczny'
     | '/uklad-pozapiramidowy'
@@ -243,6 +253,7 @@ export interface FileRouteTypes {
     | '/ogolne'
     | '/pien-mozgu'
     | '/rdzen-kregowy'
+    | '/sitemap.xml'
     | '/uklad-limbiczny'
     | '/uklad-nerwowy-autonomiczny'
     | '/uklad-pozapiramidowy'
@@ -265,6 +276,7 @@ export interface FileRouteTypes {
     | '/ogolne'
     | '/pien-mozgu'
     | '/rdzen-kregowy'
+    | '/sitemap.xml'
     | '/uklad-limbiczny'
     | '/uklad-nerwowy-autonomiczny'
     | '/uklad-pozapiramidowy'
@@ -288,6 +300,7 @@ export interface RootRouteChildren {
   OgolneRoute: typeof OgolneRoute
   PienMozguRoute: typeof PienMozguRoute
   RdzenKregowyRoute: typeof RdzenKregowyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UkladLimbicznyRoute: typeof UkladLimbicznyRoute
   UkladNerwowyAutonomicznyRoute: typeof UkladNerwowyAutonomicznyRoute
   UkladPozapiramidowyRoute: typeof UkladPozapiramidowyRoute
@@ -314,6 +327,13 @@ declare module '@tanstack/react-router' {
       path: '/uklad-limbiczny'
       fullPath: '/uklad-limbiczny'
       preLoaderRoute: typeof UkladLimbicznyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rdzen-kregowy': {
@@ -457,6 +477,7 @@ const rootRouteChildren: RootRouteChildren = {
   OgolneRoute: OgolneRoute,
   PienMozguRoute: PienMozguRoute,
   RdzenKregowyRoute: RdzenKregowyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   UkladLimbicznyRoute: UkladLimbicznyRoute,
   UkladNerwowyAutonomicznyRoute: UkladNerwowyAutonomicznyRoute,
   UkladPozapiramidowyRoute: UkladPozapiramidowyRoute,
