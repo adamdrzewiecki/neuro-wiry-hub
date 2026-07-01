@@ -9,6 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UkladPozapiramidowyRouteImport } from './routes/uklad-pozapiramidowy'
+import { Route as UkladNerwowyAutonomicznyRouteImport } from './routes/uklad-nerwowy-autonomiczny'
+import { Route as UkladLimbicznyRouteImport } from './routes/uklad-limbiczny'
 import { Route as RdzenKregowyRouteImport } from './routes/rdzen-kregowy'
 import { Route as PienMozguRouteImport } from './routes/pien-mozgu'
 import { Route as OgolneRouteImport } from './routes/ogolne'
@@ -20,8 +23,29 @@ import { Route as KresomozgowieSrodkoweIKomoraBocznaRouteImport } from './routes
 import { Route as KresomozgowieParzysteRouteImport } from './routes/kresomozgowie-parzyste'
 import { Route as KomoraIvRouteImport } from './routes/komora-iv'
 import { Route as JadraPodstawyRouteImport } from './routes/jadra-podstawy'
+import { Route as IstotaBialaRouteImport } from './routes/istota-biala'
+import { Route as DrogiZmyslowRouteImport } from './routes/drogi-zmyslow'
+import { Route as DrogiWstepujaceIZstepujaceRouteImport } from './routes/drogi-wstepujace-i-zstepujace'
+import { Route as DrogiRdzeniaRouteImport } from './routes/drogi-rdzenia'
+import { Route as DrogiCzuciaRouteImport } from './routes/drogi-czucia'
 import { Route as IndexRouteImport } from './routes/index'
 
+const UkladPozapiramidowyRoute = UkladPozapiramidowyRouteImport.update({
+  id: '/uklad-pozapiramidowy',
+  path: '/uklad-pozapiramidowy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UkladNerwowyAutonomicznyRoute =
+  UkladNerwowyAutonomicznyRouteImport.update({
+    id: '/uklad-nerwowy-autonomiczny',
+    path: '/uklad-nerwowy-autonomiczny',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const UkladLimbicznyRoute = UkladLimbicznyRouteImport.update({
+  id: '/uklad-limbiczny',
+  path: '/uklad-limbiczny',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RdzenKregowyRoute = RdzenKregowyRouteImport.update({
   id: '/rdzen-kregowy',
   path: '/rdzen-kregowy',
@@ -78,6 +102,32 @@ const JadraPodstawyRoute = JadraPodstawyRouteImport.update({
   path: '/jadra-podstawy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IstotaBialaRoute = IstotaBialaRouteImport.update({
+  id: '/istota-biala',
+  path: '/istota-biala',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DrogiZmyslowRoute = DrogiZmyslowRouteImport.update({
+  id: '/drogi-zmyslow',
+  path: '/drogi-zmyslow',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DrogiWstepujaceIZstepujaceRoute =
+  DrogiWstepujaceIZstepujaceRouteImport.update({
+    id: '/drogi-wstepujace-i-zstepujace',
+    path: '/drogi-wstepujace-i-zstepujace',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DrogiRdzeniaRoute = DrogiRdzeniaRouteImport.update({
+  id: '/drogi-rdzenia',
+  path: '/drogi-rdzenia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DrogiCzuciaRoute = DrogiCzuciaRouteImport.update({
+  id: '/drogi-czucia',
+  path: '/drogi-czucia',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -86,6 +136,11 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/drogi-czucia': typeof DrogiCzuciaRoute
+  '/drogi-rdzenia': typeof DrogiRdzeniaRoute
+  '/drogi-wstepujace-i-zstepujace': typeof DrogiWstepujaceIZstepujaceRoute
+  '/drogi-zmyslow': typeof DrogiZmyslowRoute
+  '/istota-biala': typeof IstotaBialaRoute
   '/jadra-podstawy': typeof JadraPodstawyRoute
   '/komora-iv': typeof KomoraIvRoute
   '/kresomozgowie-parzyste': typeof KresomozgowieParzysteRoute
@@ -97,9 +152,17 @@ export interface FileRoutesByFullPath {
   '/ogolne': typeof OgolneRoute
   '/pien-mozgu': typeof PienMozguRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
+  '/uklad-limbiczny': typeof UkladLimbicznyRoute
+  '/uklad-nerwowy-autonomiczny': typeof UkladNerwowyAutonomicznyRoute
+  '/uklad-pozapiramidowy': typeof UkladPozapiramidowyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/drogi-czucia': typeof DrogiCzuciaRoute
+  '/drogi-rdzenia': typeof DrogiRdzeniaRoute
+  '/drogi-wstepujace-i-zstepujace': typeof DrogiWstepujaceIZstepujaceRoute
+  '/drogi-zmyslow': typeof DrogiZmyslowRoute
+  '/istota-biala': typeof IstotaBialaRoute
   '/jadra-podstawy': typeof JadraPodstawyRoute
   '/komora-iv': typeof KomoraIvRoute
   '/kresomozgowie-parzyste': typeof KresomozgowieParzysteRoute
@@ -111,10 +174,18 @@ export interface FileRoutesByTo {
   '/ogolne': typeof OgolneRoute
   '/pien-mozgu': typeof PienMozguRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
+  '/uklad-limbiczny': typeof UkladLimbicznyRoute
+  '/uklad-nerwowy-autonomiczny': typeof UkladNerwowyAutonomicznyRoute
+  '/uklad-pozapiramidowy': typeof UkladPozapiramidowyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/drogi-czucia': typeof DrogiCzuciaRoute
+  '/drogi-rdzenia': typeof DrogiRdzeniaRoute
+  '/drogi-wstepujace-i-zstepujace': typeof DrogiWstepujaceIZstepujaceRoute
+  '/drogi-zmyslow': typeof DrogiZmyslowRoute
+  '/istota-biala': typeof IstotaBialaRoute
   '/jadra-podstawy': typeof JadraPodstawyRoute
   '/komora-iv': typeof KomoraIvRoute
   '/kresomozgowie-parzyste': typeof KresomozgowieParzysteRoute
@@ -126,11 +197,19 @@ export interface FileRoutesById {
   '/ogolne': typeof OgolneRoute
   '/pien-mozgu': typeof PienMozguRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
+  '/uklad-limbiczny': typeof UkladLimbicznyRoute
+  '/uklad-nerwowy-autonomiczny': typeof UkladNerwowyAutonomicznyRoute
+  '/uklad-pozapiramidowy': typeof UkladPozapiramidowyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/drogi-czucia'
+    | '/drogi-rdzenia'
+    | '/drogi-wstepujace-i-zstepujace'
+    | '/drogi-zmyslow'
+    | '/istota-biala'
     | '/jadra-podstawy'
     | '/komora-iv'
     | '/kresomozgowie-parzyste'
@@ -142,9 +221,17 @@ export interface FileRouteTypes {
     | '/ogolne'
     | '/pien-mozgu'
     | '/rdzen-kregowy'
+    | '/uklad-limbiczny'
+    | '/uklad-nerwowy-autonomiczny'
+    | '/uklad-pozapiramidowy'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/drogi-czucia'
+    | '/drogi-rdzenia'
+    | '/drogi-wstepujace-i-zstepujace'
+    | '/drogi-zmyslow'
+    | '/istota-biala'
     | '/jadra-podstawy'
     | '/komora-iv'
     | '/kresomozgowie-parzyste'
@@ -156,9 +243,17 @@ export interface FileRouteTypes {
     | '/ogolne'
     | '/pien-mozgu'
     | '/rdzen-kregowy'
+    | '/uklad-limbiczny'
+    | '/uklad-nerwowy-autonomiczny'
+    | '/uklad-pozapiramidowy'
   id:
     | '__root__'
     | '/'
+    | '/drogi-czucia'
+    | '/drogi-rdzenia'
+    | '/drogi-wstepujace-i-zstepujace'
+    | '/drogi-zmyslow'
+    | '/istota-biala'
     | '/jadra-podstawy'
     | '/komora-iv'
     | '/kresomozgowie-parzyste'
@@ -170,10 +265,18 @@ export interface FileRouteTypes {
     | '/ogolne'
     | '/pien-mozgu'
     | '/rdzen-kregowy'
+    | '/uklad-limbiczny'
+    | '/uklad-nerwowy-autonomiczny'
+    | '/uklad-pozapiramidowy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DrogiCzuciaRoute: typeof DrogiCzuciaRoute
+  DrogiRdzeniaRoute: typeof DrogiRdzeniaRoute
+  DrogiWstepujaceIZstepujaceRoute: typeof DrogiWstepujaceIZstepujaceRoute
+  DrogiZmyslowRoute: typeof DrogiZmyslowRoute
+  IstotaBialaRoute: typeof IstotaBialaRoute
   JadraPodstawyRoute: typeof JadraPodstawyRoute
   KomoraIvRoute: typeof KomoraIvRoute
   KresomozgowieParzysteRoute: typeof KresomozgowieParzysteRoute
@@ -185,10 +288,34 @@ export interface RootRouteChildren {
   OgolneRoute: typeof OgolneRoute
   PienMozguRoute: typeof PienMozguRoute
   RdzenKregowyRoute: typeof RdzenKregowyRoute
+  UkladLimbicznyRoute: typeof UkladLimbicznyRoute
+  UkladNerwowyAutonomicznyRoute: typeof UkladNerwowyAutonomicznyRoute
+  UkladPozapiramidowyRoute: typeof UkladPozapiramidowyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/uklad-pozapiramidowy': {
+      id: '/uklad-pozapiramidowy'
+      path: '/uklad-pozapiramidowy'
+      fullPath: '/uklad-pozapiramidowy'
+      preLoaderRoute: typeof UkladPozapiramidowyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/uklad-nerwowy-autonomiczny': {
+      id: '/uklad-nerwowy-autonomiczny'
+      path: '/uklad-nerwowy-autonomiczny'
+      fullPath: '/uklad-nerwowy-autonomiczny'
+      preLoaderRoute: typeof UkladNerwowyAutonomicznyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/uklad-limbiczny': {
+      id: '/uklad-limbiczny'
+      path: '/uklad-limbiczny'
+      fullPath: '/uklad-limbiczny'
+      preLoaderRoute: typeof UkladLimbicznyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/rdzen-kregowy': {
       id: '/rdzen-kregowy'
       path: '/rdzen-kregowy'
@@ -266,6 +393,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JadraPodstawyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/istota-biala': {
+      id: '/istota-biala'
+      path: '/istota-biala'
+      fullPath: '/istota-biala'
+      preLoaderRoute: typeof IstotaBialaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/drogi-zmyslow': {
+      id: '/drogi-zmyslow'
+      path: '/drogi-zmyslow'
+      fullPath: '/drogi-zmyslow'
+      preLoaderRoute: typeof DrogiZmyslowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/drogi-wstepujace-i-zstepujace': {
+      id: '/drogi-wstepujace-i-zstepujace'
+      path: '/drogi-wstepujace-i-zstepujace'
+      fullPath: '/drogi-wstepujace-i-zstepujace'
+      preLoaderRoute: typeof DrogiWstepujaceIZstepujaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/drogi-rdzenia': {
+      id: '/drogi-rdzenia'
+      path: '/drogi-rdzenia'
+      fullPath: '/drogi-rdzenia'
+      preLoaderRoute: typeof DrogiRdzeniaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/drogi-czucia': {
+      id: '/drogi-czucia'
+      path: '/drogi-czucia'
+      fullPath: '/drogi-czucia'
+      preLoaderRoute: typeof DrogiCzuciaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -278,6 +440,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DrogiCzuciaRoute: DrogiCzuciaRoute,
+  DrogiRdzeniaRoute: DrogiRdzeniaRoute,
+  DrogiWstepujaceIZstepujaceRoute: DrogiWstepujaceIZstepujaceRoute,
+  DrogiZmyslowRoute: DrogiZmyslowRoute,
+  IstotaBialaRoute: IstotaBialaRoute,
   JadraPodstawyRoute: JadraPodstawyRoute,
   KomoraIvRoute: KomoraIvRoute,
   KresomozgowieParzysteRoute: KresomozgowieParzysteRoute,
@@ -290,7 +457,20 @@ const rootRouteChildren: RootRouteChildren = {
   OgolneRoute: OgolneRoute,
   PienMozguRoute: PienMozguRoute,
   RdzenKregowyRoute: RdzenKregowyRoute,
+  UkladLimbicznyRoute: UkladLimbicznyRoute,
+  UkladNerwowyAutonomicznyRoute: UkladNerwowyAutonomicznyRoute,
+  UkladPozapiramidowyRoute: UkladPozapiramidowyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
