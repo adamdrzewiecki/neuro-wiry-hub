@@ -9,8 +9,75 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RdzenKregowyRouteImport } from './routes/rdzen-kregowy'
+import { Route as PienMozguRouteImport } from './routes/pien-mozgu'
+import { Route as OgolneRouteImport } from './routes/ogolne'
+import { Route as NerwyCzaszkoweRouteImport } from './routes/nerwy-czaszkowe'
+import { Route as MozgowieIRdzenNerwowyRouteImport } from './routes/mozgowie-i-rdzen-nerwowy'
+import { Route as MozdzekRouteImport } from './routes/mozdzek'
+import { Route as MiedzymozgowieRouteImport } from './routes/miedzymozgowie'
+import { Route as KresomozgowieSrodkoweIKomoraBocznaRouteImport } from './routes/kresomozgowie-srodkowe-i-komora-boczna'
+import { Route as KresomozgowieParzysteRouteImport } from './routes/kresomozgowie-parzyste'
+import { Route as KomoraIvRouteImport } from './routes/komora-iv'
+import { Route as JadraPodstawyRouteImport } from './routes/jadra-podstawy'
 import { Route as IndexRouteImport } from './routes/index'
 
+const RdzenKregowyRoute = RdzenKregowyRouteImport.update({
+  id: '/rdzen-kregowy',
+  path: '/rdzen-kregowy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PienMozguRoute = PienMozguRouteImport.update({
+  id: '/pien-mozgu',
+  path: '/pien-mozgu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OgolneRoute = OgolneRouteImport.update({
+  id: '/ogolne',
+  path: '/ogolne',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NerwyCzaszkoweRoute = NerwyCzaszkoweRouteImport.update({
+  id: '/nerwy-czaszkowe',
+  path: '/nerwy-czaszkowe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MozgowieIRdzenNerwowyRoute = MozgowieIRdzenNerwowyRouteImport.update({
+  id: '/mozgowie-i-rdzen-nerwowy',
+  path: '/mozgowie-i-rdzen-nerwowy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MozdzekRoute = MozdzekRouteImport.update({
+  id: '/mozdzek',
+  path: '/mozdzek',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MiedzymozgowieRoute = MiedzymozgowieRouteImport.update({
+  id: '/miedzymozgowie',
+  path: '/miedzymozgowie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KresomozgowieSrodkoweIKomoraBocznaRoute =
+  KresomozgowieSrodkoweIKomoraBocznaRouteImport.update({
+    id: '/kresomozgowie-srodkowe-i-komora-boczna',
+    path: '/kresomozgowie-srodkowe-i-komora-boczna',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const KresomozgowieParzysteRoute = KresomozgowieParzysteRouteImport.update({
+  id: '/kresomozgowie-parzyste',
+  path: '/kresomozgowie-parzyste',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KomoraIvRoute = KomoraIvRouteImport.update({
+  id: '/komora-iv',
+  path: '/komora-iv',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JadraPodstawyRoute = JadraPodstawyRouteImport.update({
+  id: '/jadra-podstawy',
+  path: '/jadra-podstawy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +86,186 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/jadra-podstawy': typeof JadraPodstawyRoute
+  '/komora-iv': typeof KomoraIvRoute
+  '/kresomozgowie-parzyste': typeof KresomozgowieParzysteRoute
+  '/kresomozgowie-srodkowe-i-komora-boczna': typeof KresomozgowieSrodkoweIKomoraBocznaRoute
+  '/miedzymozgowie': typeof MiedzymozgowieRoute
+  '/mozdzek': typeof MozdzekRoute
+  '/mozgowie-i-rdzen-nerwowy': typeof MozgowieIRdzenNerwowyRoute
+  '/nerwy-czaszkowe': typeof NerwyCzaszkoweRoute
+  '/ogolne': typeof OgolneRoute
+  '/pien-mozgu': typeof PienMozguRoute
+  '/rdzen-kregowy': typeof RdzenKregowyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/jadra-podstawy': typeof JadraPodstawyRoute
+  '/komora-iv': typeof KomoraIvRoute
+  '/kresomozgowie-parzyste': typeof KresomozgowieParzysteRoute
+  '/kresomozgowie-srodkowe-i-komora-boczna': typeof KresomozgowieSrodkoweIKomoraBocznaRoute
+  '/miedzymozgowie': typeof MiedzymozgowieRoute
+  '/mozdzek': typeof MozdzekRoute
+  '/mozgowie-i-rdzen-nerwowy': typeof MozgowieIRdzenNerwowyRoute
+  '/nerwy-czaszkowe': typeof NerwyCzaszkoweRoute
+  '/ogolne': typeof OgolneRoute
+  '/pien-mozgu': typeof PienMozguRoute
+  '/rdzen-kregowy': typeof RdzenKregowyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/jadra-podstawy': typeof JadraPodstawyRoute
+  '/komora-iv': typeof KomoraIvRoute
+  '/kresomozgowie-parzyste': typeof KresomozgowieParzysteRoute
+  '/kresomozgowie-srodkowe-i-komora-boczna': typeof KresomozgowieSrodkoweIKomoraBocznaRoute
+  '/miedzymozgowie': typeof MiedzymozgowieRoute
+  '/mozdzek': typeof MozdzekRoute
+  '/mozgowie-i-rdzen-nerwowy': typeof MozgowieIRdzenNerwowyRoute
+  '/nerwy-czaszkowe': typeof NerwyCzaszkoweRoute
+  '/ogolne': typeof OgolneRoute
+  '/pien-mozgu': typeof PienMozguRoute
+  '/rdzen-kregowy': typeof RdzenKregowyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/jadra-podstawy'
+    | '/komora-iv'
+    | '/kresomozgowie-parzyste'
+    | '/kresomozgowie-srodkowe-i-komora-boczna'
+    | '/miedzymozgowie'
+    | '/mozdzek'
+    | '/mozgowie-i-rdzen-nerwowy'
+    | '/nerwy-czaszkowe'
+    | '/ogolne'
+    | '/pien-mozgu'
+    | '/rdzen-kregowy'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/jadra-podstawy'
+    | '/komora-iv'
+    | '/kresomozgowie-parzyste'
+    | '/kresomozgowie-srodkowe-i-komora-boczna'
+    | '/miedzymozgowie'
+    | '/mozdzek'
+    | '/mozgowie-i-rdzen-nerwowy'
+    | '/nerwy-czaszkowe'
+    | '/ogolne'
+    | '/pien-mozgu'
+    | '/rdzen-kregowy'
+  id:
+    | '__root__'
+    | '/'
+    | '/jadra-podstawy'
+    | '/komora-iv'
+    | '/kresomozgowie-parzyste'
+    | '/kresomozgowie-srodkowe-i-komora-boczna'
+    | '/miedzymozgowie'
+    | '/mozdzek'
+    | '/mozgowie-i-rdzen-nerwowy'
+    | '/nerwy-czaszkowe'
+    | '/ogolne'
+    | '/pien-mozgu'
+    | '/rdzen-kregowy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  JadraPodstawyRoute: typeof JadraPodstawyRoute
+  KomoraIvRoute: typeof KomoraIvRoute
+  KresomozgowieParzysteRoute: typeof KresomozgowieParzysteRoute
+  KresomozgowieSrodkoweIKomoraBocznaRoute: typeof KresomozgowieSrodkoweIKomoraBocznaRoute
+  MiedzymozgowieRoute: typeof MiedzymozgowieRoute
+  MozdzekRoute: typeof MozdzekRoute
+  MozgowieIRdzenNerwowyRoute: typeof MozgowieIRdzenNerwowyRoute
+  NerwyCzaszkoweRoute: typeof NerwyCzaszkoweRoute
+  OgolneRoute: typeof OgolneRoute
+  PienMozguRoute: typeof PienMozguRoute
+  RdzenKregowyRoute: typeof RdzenKregowyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/rdzen-kregowy': {
+      id: '/rdzen-kregowy'
+      path: '/rdzen-kregowy'
+      fullPath: '/rdzen-kregowy'
+      preLoaderRoute: typeof RdzenKregowyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pien-mozgu': {
+      id: '/pien-mozgu'
+      path: '/pien-mozgu'
+      fullPath: '/pien-mozgu'
+      preLoaderRoute: typeof PienMozguRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ogolne': {
+      id: '/ogolne'
+      path: '/ogolne'
+      fullPath: '/ogolne'
+      preLoaderRoute: typeof OgolneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nerwy-czaszkowe': {
+      id: '/nerwy-czaszkowe'
+      path: '/nerwy-czaszkowe'
+      fullPath: '/nerwy-czaszkowe'
+      preLoaderRoute: typeof NerwyCzaszkoweRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mozgowie-i-rdzen-nerwowy': {
+      id: '/mozgowie-i-rdzen-nerwowy'
+      path: '/mozgowie-i-rdzen-nerwowy'
+      fullPath: '/mozgowie-i-rdzen-nerwowy'
+      preLoaderRoute: typeof MozgowieIRdzenNerwowyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mozdzek': {
+      id: '/mozdzek'
+      path: '/mozdzek'
+      fullPath: '/mozdzek'
+      preLoaderRoute: typeof MozdzekRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/miedzymozgowie': {
+      id: '/miedzymozgowie'
+      path: '/miedzymozgowie'
+      fullPath: '/miedzymozgowie'
+      preLoaderRoute: typeof MiedzymozgowieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kresomozgowie-srodkowe-i-komora-boczna': {
+      id: '/kresomozgowie-srodkowe-i-komora-boczna'
+      path: '/kresomozgowie-srodkowe-i-komora-boczna'
+      fullPath: '/kresomozgowie-srodkowe-i-komora-boczna'
+      preLoaderRoute: typeof KresomozgowieSrodkoweIKomoraBocznaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kresomozgowie-parzyste': {
+      id: '/kresomozgowie-parzyste'
+      path: '/kresomozgowie-parzyste'
+      fullPath: '/kresomozgowie-parzyste'
+      preLoaderRoute: typeof KresomozgowieParzysteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/komora-iv': {
+      id: '/komora-iv'
+      path: '/komora-iv'
+      fullPath: '/komora-iv'
+      preLoaderRoute: typeof KomoraIvRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jadra-podstawy': {
+      id: '/jadra-podstawy'
+      path: '/jadra-podstawy'
+      fullPath: '/jadra-podstawy'
+      preLoaderRoute: typeof JadraPodstawyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +278,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  JadraPodstawyRoute: JadraPodstawyRoute,
+  KomoraIvRoute: KomoraIvRoute,
+  KresomozgowieParzysteRoute: KresomozgowieParzysteRoute,
+  KresomozgowieSrodkoweIKomoraBocznaRoute:
+    KresomozgowieSrodkoweIKomoraBocznaRoute,
+  MiedzymozgowieRoute: MiedzymozgowieRoute,
+  MozdzekRoute: MozdzekRoute,
+  MozgowieIRdzenNerwowyRoute: MozgowieIRdzenNerwowyRoute,
+  NerwyCzaszkoweRoute: NerwyCzaszkoweRoute,
+  OgolneRoute: OgolneRoute,
+  PienMozguRoute: PienMozguRoute,
+  RdzenKregowyRoute: RdzenKregowyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
