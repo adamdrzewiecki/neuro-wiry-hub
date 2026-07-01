@@ -15,6 +15,7 @@ import { Route as UkladLimbicznyRouteImport } from './routes/uklad-limbiczny'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RdzenKregowyRouteImport } from './routes/rdzen-kregowy'
 import { Route as PienMozguRouteImport } from './routes/pien-mozgu'
+import { Route as OgolnewRouteImport } from './routes/ogolnew'
 import { Route as OgolneRouteImport } from './routes/ogolne'
 import { Route as NerwyCzaszkoweRouteImport } from './routes/nerwy-czaszkowe'
 import { Route as MozgowieIRdzenNerwowyRouteImport } from './routes/mozgowie-i-rdzen-nerwowy'
@@ -60,6 +61,11 @@ const RdzenKregowyRoute = RdzenKregowyRouteImport.update({
 const PienMozguRoute = PienMozguRouteImport.update({
   id: '/pien-mozgu',
   path: '/pien-mozgu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OgolnewRoute = OgolnewRouteImport.update({
+  id: '/ogolnew',
+  path: '/ogolnew',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OgolneRoute = OgolneRouteImport.update({
@@ -156,6 +162,7 @@ export interface FileRoutesByFullPath {
   '/mozgowie-i-rdzen-nerwowy': typeof MozgowieIRdzenNerwowyRoute
   '/nerwy-czaszkowe': typeof NerwyCzaszkoweRoute
   '/ogolne': typeof OgolneRoute
+  '/ogolnew': typeof OgolnewRoute
   '/pien-mozgu': typeof PienMozguRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -179,6 +186,7 @@ export interface FileRoutesByTo {
   '/mozgowie-i-rdzen-nerwowy': typeof MozgowieIRdzenNerwowyRoute
   '/nerwy-czaszkowe': typeof NerwyCzaszkoweRoute
   '/ogolne': typeof OgolneRoute
+  '/ogolnew': typeof OgolnewRoute
   '/pien-mozgu': typeof PienMozguRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -203,6 +211,7 @@ export interface FileRoutesById {
   '/mozgowie-i-rdzen-nerwowy': typeof MozgowieIRdzenNerwowyRoute
   '/nerwy-czaszkowe': typeof NerwyCzaszkoweRoute
   '/ogolne': typeof OgolneRoute
+  '/ogolnew': typeof OgolnewRoute
   '/pien-mozgu': typeof PienMozguRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -228,6 +237,7 @@ export interface FileRouteTypes {
     | '/mozgowie-i-rdzen-nerwowy'
     | '/nerwy-czaszkowe'
     | '/ogolne'
+    | '/ogolnew'
     | '/pien-mozgu'
     | '/rdzen-kregowy'
     | '/sitemap.xml'
@@ -251,6 +261,7 @@ export interface FileRouteTypes {
     | '/mozgowie-i-rdzen-nerwowy'
     | '/nerwy-czaszkowe'
     | '/ogolne'
+    | '/ogolnew'
     | '/pien-mozgu'
     | '/rdzen-kregowy'
     | '/sitemap.xml'
@@ -274,6 +285,7 @@ export interface FileRouteTypes {
     | '/mozgowie-i-rdzen-nerwowy'
     | '/nerwy-czaszkowe'
     | '/ogolne'
+    | '/ogolnew'
     | '/pien-mozgu'
     | '/rdzen-kregowy'
     | '/sitemap.xml'
@@ -298,6 +310,7 @@ export interface RootRouteChildren {
   MozgowieIRdzenNerwowyRoute: typeof MozgowieIRdzenNerwowyRoute
   NerwyCzaszkoweRoute: typeof NerwyCzaszkoweRoute
   OgolneRoute: typeof OgolneRoute
+  OgolnewRoute: typeof OgolnewRoute
   PienMozguRoute: typeof PienMozguRoute
   RdzenKregowyRoute: typeof RdzenKregowyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -348,6 +361,13 @@ declare module '@tanstack/react-router' {
       path: '/pien-mozgu'
       fullPath: '/pien-mozgu'
       preLoaderRoute: typeof PienMozguRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ogolnew': {
+      id: '/ogolnew'
+      path: '/ogolnew'
+      fullPath: '/ogolnew'
+      preLoaderRoute: typeof OgolnewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ogolne': {
@@ -475,6 +495,7 @@ const rootRouteChildren: RootRouteChildren = {
   MozgowieIRdzenNerwowyRoute: MozgowieIRdzenNerwowyRoute,
   NerwyCzaszkoweRoute: NerwyCzaszkoweRoute,
   OgolneRoute: OgolneRoute,
+  OgolnewRoute: OgolnewRoute,
   PienMozguRoute: PienMozguRoute,
   RdzenKregowyRoute: RdzenKregowyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
