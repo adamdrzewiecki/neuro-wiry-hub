@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CategoryPage } from "@/components/CategoryPage";
 
-export const Route = createFileRoute("/komora-iv")({
-  component: () => <CategoryPage slug="komora-iv" />,
+export const Route = createFileRoute("/zmysly")({
+  component: () => <CategoryPage slug="zmysly" />,
   head: () => ({
     meta: [
-      { title: "Komora IV — Neuro Świry" },
+      { title: "Zmysły — Neuro Świry" },
     ],
   }),
 });
