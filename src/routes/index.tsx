@@ -6,24 +6,6 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const tags = [
-  "dendryt",
-  "akson",
-  "hipokamp",
-  "ciało migdałowate",
-  "synapsa",
-  "neuron",
-  "mielina",
-  "kora mózgowa",
-  "wzgórze",
-  "podwzgórze",
-  "przysadka",
-  "szyszynka",
-  "istota szara",
-  "neuroprzekaźnik",
-  "receptor",
-];
-
 function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
@@ -78,21 +60,6 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="px-4 pb-20 pt-4 sm:px-6">
-          <div className="mx-auto max-w-3xl">
-            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
-              {tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs font-medium text-primary/80 transition-colors hover:text-primary"
-                  style={{ fontSize: "0.7rem" }}
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer className="border-t border-border py-6 text-center">

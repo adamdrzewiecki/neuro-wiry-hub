@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Brain } from "lucide-react";
 import { getCategoryBySlug, getSubcategory } from "@/lib/categories";
