@@ -41,6 +41,19 @@ export const Route = createFileRoute("/$category/$subcategory")({
 
 function SubcategoryPage() {
   const { category, subcategory } = Route.useLoaderData();
+  const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
+
+  const toggleTag = (tag: string) => {
+    setSelectedTags((prev) => {
+      const next = new Set(prev);
+      if (next.has(tag)) {
+        next.delete(tag);
+      } else {
+        next.add(tag);
+      }
+      return next;
+    });
+  };
 
   return (
     <div className="flex min-h-screen flex-col">
