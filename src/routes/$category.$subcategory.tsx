@@ -42,6 +42,7 @@ export const Route = createFileRoute("/$category/$subcategory")({
 function SubcategoryPage() {
   const { category, subcategory } = Route.useLoaderData();
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
+  const [selectedCount, setSelectedCount] = useState("10");
 
   const toggleTag = (tag: string) => {
     setSelectedTags((prev) => {
@@ -54,6 +55,8 @@ function SubcategoryPage() {
       return next;
     });
   };
+
+  const countLabel = selectedCount === "all" ? "Wszystkie" : selectedCount;
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -91,7 +94,7 @@ function SubcategoryPage() {
 
         <section className="mb-10 rounded-3xl border border-border/60 bg-card p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-foreground">Liczba pytań</h2>
-          <RadioGroup defaultValue="10" className="mt-4 space-y-3">
+          <RadioGroup value={selectedCount} onValueChange={setSelectedCount} className="mt-4 space-y-3">
             {[
               { value: "10", label: "10" },
               { value: "30", label: "30" },
@@ -107,7 +110,7 @@ function SubcategoryPage() {
           </RadioGroup>
         </section>
 
-        <section className="rounded-3xl border border-border/60 bg-card p-6 sm:p-8">
+        <section className="mb-10 rounded-3xl border border-border/60 bg-card p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-foreground">Tagi</h2>
           <div className="mt-4 flex flex-wrap gap-2">
             {[
@@ -136,6 +139,43 @@ function SubcategoryPage() {
               </button>
             ))}
           </div>
+        </section>
+
+        <section className="rounded-3xl border border-border/60 bg-card p-6 sm:p-8">
+          <h2 className="text-lg font-semibold text-foreground">Podsumowanie</h2>
+          <div className="mt-4 space-y-3">
+            <div>
+              <p className="text-sm text-muted-foreground">Wybrana kategoria</p>
+              <p className="text-base text-foreground">{subcategory.title}</p>
+            </div>
+            <div>
+              <p className="text-sm text-muted-foreground">Liczba pytań</p>
+              <p className="text-base text-foreground">{countLabel}</p>
+            </div>
+            <div>
+              <p className="text-sm text-muted-foreground">Wybrane tagi</p>
+              <div className="mt-1 flex flex-wrap gap-2">
+                {selectedTags.size === 0 ? (
+                  <span className="text-sm text-muted-foreground">Brak wybranych tagów</span>
+                ) : (
+                  Array.from(selectedTags).map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-flex items-center rounded-full bg-primary px-3 py-1 text-sm text-primary-foreground"
+                    >
+                      {tag}
+                    </span>
+                  ))
+                )}
+              </div>
+            </div>
+          </div>
+          <button
+            type="button"
+            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-4 text-base font-semibold text-primary-foreground transition-all hover:bg-primary/90"
+          >
+            Rozpocznij test
+          </button>
         </section>
       </main>
     </div>
