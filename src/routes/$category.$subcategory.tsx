@@ -1,6 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Brain } from "lucide-react";
 import { getCategoryBySlug, getSubcategory } from "@/lib/categories";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export const Route = createFileRoute("/$category/$subcategory")({
   component: SubcategoryPage,
@@ -14,7 +16,7 @@ export const Route = createFileRoute("/$category/$subcategory")({
     meta: [
       {
         title: loaderData
-          ? `${loaderData.subcategory.title} — ${loaderData.category.title} — Neuro Świry`
+          ? `${loaderData.subcategory.title} — Ustawienia testu — Neuro Świry`
           : "Neuro Świry",
       },
     ],
@@ -50,7 +52,8 @@ function SubcategoryPage() {
             <span className="text-lg font-semibold tracking-tight text-foreground">Neuro Świry</span>
           </Link>
           <Link
-            to={`/${category.slug}`}
+            to="/$category"
+            params={{ category: category.slug }}
             className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -59,21 +62,43 @@ function SubcategoryPage() {
         </div>
       </header>
 
-      <main className="flex flex-1 flex-col items-center justify-center px-4 py-16">
-        <div className="max-w-2xl text-center">
-          <div className="mb-8 inline-flex h-20 w-20 items-center justify-center rounded-3xl bg-primary/10">
-            <Brain className="h-10 w-10 text-primary" />
-          </div>
+      <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-12 sm:py-16">
+        <div className="mb-10">
           <p className="text-sm font-medium uppercase tracking-widest text-primary">
-            {category.title}
+            Ustawienia testu
           </p>
-          <h1 className="mt-3 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             {subcategory.title}
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground">
-            Quiz dla tej podkategorii pojawi się wkrótce.
+          <p className="mt-2 text-sm text-muted-foreground">
+            {category.title}
           </p>
         </div>
+
+        <section className="mb-10 rounded-3xl border border-border/60 bg-card p-6 sm:p-8">
+          <h2 className="text-lg font-semibold text-foreground">Liczba pytań</h2>
+          <RadioGroup defaultValue="10" className="mt-4 space-y-3">
+            {[
+              { value: "10", label: "10" },
+              { value: "30", label: "30" },
+              { value: "all", label: "Wszystkie" },
+            ].map((opt) => (
+              <div key={opt.value} className="flex items-center gap-3">
+                <RadioGroupItem value={opt.value} id={`count-${opt.value}`} />
+                <Label htmlFor={`count-${opt.value}`} className="cursor-pointer text-base">
+                  {opt.label}
+                </Label>
+              </div>
+            ))}
+          </RadioGroup>
+        </section>
+
+        <section className="rounded-3xl border border-border/60 bg-card p-6 sm:p-8">
+          <h2 className="text-lg font-semibold text-foreground">Tagi</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Tagi pojawią się wkrótce.
+          </p>
+        </section>
       </main>
     </div>
   );
