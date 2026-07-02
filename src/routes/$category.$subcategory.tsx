@@ -96,9 +96,33 @@ function SubcategoryPage() {
 
         <section className="rounded-3xl border border-border/60 bg-card p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-foreground">Tagi</h2>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Tagi pojawią się wkrótce.
-          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {[
+              "neuron",
+              "dendryt",
+              "akson",
+              "synapsa",
+              "receptor",
+              "neuroprzekaźnik",
+              "mielina",
+              "istota szara",
+              "istota biała",
+              "kora mózgowa",
+            ].map((tag) => (
+              <button
+                key={tag}
+                type="button"
+                onClick={() => toggleTag(tag)}
+                className={`inline-flex items-center rounded-full px-3.5 py-1.5 text-sm transition-all ${
+                  selectedTags.has(tag)
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "bg-muted text-muted-foreground hover:bg-muted/80"
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
         </section>
       </main>
     </div>
