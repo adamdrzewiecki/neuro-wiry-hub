@@ -1,10 +1,28 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Brain, ChevronRight } from "lucide-react";
+import { Brain } from "lucide-react";
 import { categories } from "@/lib/categories";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
 });
+
+const tags = [
+  "dendryt",
+  "akson",
+  "hipokamp",
+  "ciało migdałowate",
+  "synapsa",
+  "neuron",
+  "mielina",
+  "kora mózgowa",
+  "wzgórze",
+  "podwzgórze",
+  "przysadka",
+  "szyszynka",
+  "istota szara",
+  "neuroprzekaźnik",
+  "receptor",
+];
 
 function HomePage() {
   return (
@@ -30,8 +48,7 @@ function HomePage() {
             </div>
 
             <h1 className="text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-              Neuro{" "}
-              <span className="text-primary">Świry</span>
+              Neuro <span className="text-primary">Świry</span>
             </h1>
 
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
@@ -40,25 +57,38 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="px-4 pb-20 pt-8 sm:px-6">
-          <div className="mx-auto max-w-6xl">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <section className="px-4 pb-16 pt-8 sm:px-6">
+          <div className="mx-auto max-w-4xl">
+            <div className="flex flex-wrap justify-center gap-3">
               {categories.map((category, index) => (
                 <Link
                   key={category.slug}
                   to={`/${category.slug}`}
-                  className="group relative flex flex-col items-start overflow-hidden rounded-[var(--radius)] bg-primary p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20"
+                  className="group relative inline-flex items-center rounded-[var(--radius)] bg-primary px-4 py-2.5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/25"
                   style={{
-                    animation: `fadeInUp 0.5s ease-out ${index * 30}ms both`,
+                    animation: `fadeInUp 0.5s ease-out ${index * 25}ms both`,
                   }}
                 >
-                  <span className="font-display text-base font-semibold leading-snug text-primary-foreground">
+                  <span className="font-display text-sm font-semibold leading-none text-primary-foreground">
                     {category.title}
                   </span>
-                  <div className="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-                    <ChevronRight className="h-5 w-5 text-primary-foreground/80" />
-                  </div>
                 </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-4 pb-20 pt-4 sm:px-6">
+          <div className="mx-auto max-w-3xl">
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
+              {tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs font-medium text-primary/80 transition-colors hover:text-primary"
+                  style={{ fontSize: "0.7rem" }}
+                >
+                  #{tag}
+                </span>
               ))}
             </div>
           </div>

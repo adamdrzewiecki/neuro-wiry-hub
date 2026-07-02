@@ -4,7 +4,7 @@ export interface Category {
 }
 
 export const categories: Category[] = [
-  { slug: "ogolnew", title: "Ogólnew" },
+  { slug: "ogolne", title: "Ogólne" },
   { slug: "mozgowie-i-rdzen-nerwowy", title: "Mózgowie i rdzeń nerwowy" },
   { slug: "rdzen-kregowy", title: "Rdzeń kręgowy" },
   { slug: "kresomozgowie", title: "Kresomózgowie" },
@@ -22,6 +22,11 @@ export const categories: Category[] = [
   { slug: "uklad-czuciowy", title: "Układ czuciowy" },
   { slug: "uklad-ruchowy", title: "Układ ruchowy" },
   { slug: "zmysly", title: "Zmysły" },
+  { slug: "plat-czolowy", title: "Płat czołowy" },
+  { slug: "plat-potyliczny", title: "Płat potyliczny" },
+  { slug: "plat-ciemieniowy", title: "Płat ciemieniowy" },
+  { slug: "plat-skroniowy", title: "Płat skroniowy" },
+  { slug: "wyspa", title: "Wyspa" },
 ];
 
 export function getCategoryBySlug(slug: string): Category | undefined {

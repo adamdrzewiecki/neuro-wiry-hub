@@ -54,13 +54,13 @@
 
 :root {
   --radius: 1.125rem;
-  --background: oklch(0.94 0.005 260);
-  --foreground: oklch(0.22 0.02 260);
+  --background: oklch(0.89 0.005 260);
+  --foreground: oklch(0.18 0.04 260);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.22 0.02 260);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.02 260);
-  --primary: oklch(0.55 0.18 260);
+  --primary: oklch(0.28 0.12 265);
   --primary-foreground: oklch(0.98 0.005 260);
   --secondary: oklch(0.92 0.02 260);
   --secondary-foreground: oklch(0.22 0.02 260);
@@ -72,7 +72,7 @@
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.86 0.015 260);
   --input: oklch(0.86 0.015 260);
-  --ring: oklch(0.55 0.18 260);
+  --ring: oklch(0.28 0.12 265);
   --chart-1: oklch(0.55 0.18 260);
   --chart-2: oklch(0.65 0.14 200);
   --chart-3: oklch(0.5 0.12 300);
