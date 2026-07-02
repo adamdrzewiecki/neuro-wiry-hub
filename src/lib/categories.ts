@@ -221,11 +221,6 @@ export const categories: Category[] = [
       { slug: "integracja-sensoryczna", title: "Integracja sensoryczna" },
     ],
   },
-  { slug: "plat-czolowy", title: "Płat czołowy", subcategories: [] },
-  { slug: "plat-potyliczny", title: "Płat potyliczny", subcategories: [] },
-  { slug: "plat-ciemieniowy", title: "Płat ciemieniowy", subcategories: [] },
-  { slug: "plat-skroniowy", title: "Płat skroniowy", subcategories: [] },
-  { slug: "wyspa", title: "Wyspa", subcategories: [] },
 ];
 
 export function getCategoryBySlug(slug: string): Category | undefined {
