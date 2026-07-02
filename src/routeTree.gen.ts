@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ZmyslyRouteImport } from './routes/zmysly'
+import { Route as WyspaRouteImport } from './routes/wyspa'
 import { Route as UkladRuchowyRouteImport } from './routes/uklad-ruchowy'
 import { Route as UkladPozapiramidowyRouteImport } from './routes/uklad-pozapiramidowy'
 import { Route as UkladNerwowyAutonomicznyRouteImport } from './routes/uklad-nerwowy-autonomiczny'
@@ -17,8 +18,12 @@ import { Route as UkladLimbicznyRouteImport } from './routes/uklad-limbiczny'
 import { Route as UkladCzuciowyRouteImport } from './routes/uklad-czuciowy'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RdzenKregowyRouteImport } from './routes/rdzen-kregowy'
+import { Route as PlatSkroniowyRouteImport } from './routes/plat-skroniowy'
+import { Route as PlatPotylicznyRouteImport } from './routes/plat-potyliczny'
+import { Route as PlatCzolowyRouteImport } from './routes/plat-czolowy'
+import { Route as PlatCiemieniowyRouteImport } from './routes/plat-ciemieniowy'
 import { Route as PienMozguRouteImport } from './routes/pien-mozgu'
-import { Route as OgolnewRouteImport } from './routes/ogolnew'
+import { Route as OgolneRouteImport } from './routes/ogolne'
 import { Route as NerwyCzaszkoweRouteImport } from './routes/nerwy-czaszkowe'
 import { Route as MozgowieIRdzenNerwowyRouteImport } from './routes/mozgowie-i-rdzen-nerwowy'
 import { Route as MozdzekRouteImport } from './routes/mozdzek'
@@ -33,6 +38,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const ZmyslyRoute = ZmyslyRouteImport.update({
   id: '/zmysly',
   path: '/zmysly',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WyspaRoute = WyspaRouteImport.update({
+  id: '/wyspa',
+  path: '/wyspa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UkladRuchowyRoute = UkladRuchowyRouteImport.update({
@@ -71,14 +81,34 @@ const RdzenKregowyRoute = RdzenKregowyRouteImport.update({
   path: '/rdzen-kregowy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlatSkroniowyRoute = PlatSkroniowyRouteImport.update({
+  id: '/plat-skroniowy',
+  path: '/plat-skroniowy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlatPotylicznyRoute = PlatPotylicznyRouteImport.update({
+  id: '/plat-potyliczny',
+  path: '/plat-potyliczny',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlatCzolowyRoute = PlatCzolowyRouteImport.update({
+  id: '/plat-czolowy',
+  path: '/plat-czolowy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlatCiemieniowyRoute = PlatCiemieniowyRouteImport.update({
+  id: '/plat-ciemieniowy',
+  path: '/plat-ciemieniowy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PienMozguRoute = PienMozguRouteImport.update({
   id: '/pien-mozgu',
   path: '/pien-mozgu',
   getParentRoute: () => rootRouteImport,
 } as any)
-const OgolnewRoute = OgolnewRouteImport.update({
-  id: '/ogolnew',
-  path: '/ogolnew',
+const OgolneRoute = OgolneRouteImport.update({
+  id: '/ogolne',
+  path: '/ogolne',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NerwyCzaszkoweRoute = NerwyCzaszkoweRouteImport.update({
@@ -143,8 +173,12 @@ export interface FileRoutesByFullPath {
   '/mozdzek': typeof MozdzekRoute
   '/mozgowie-i-rdzen-nerwowy': typeof MozgowieIRdzenNerwowyRoute
   '/nerwy-czaszkowe': typeof NerwyCzaszkoweRoute
-  '/ogolnew': typeof OgolnewRoute
+  '/ogolne': typeof OgolneRoute
   '/pien-mozgu': typeof PienMozguRoute
+  '/plat-ciemieniowy': typeof PlatCiemieniowyRoute
+  '/plat-czolowy': typeof PlatCzolowyRoute
+  '/plat-potyliczny': typeof PlatPotylicznyRoute
+  '/plat-skroniowy': typeof PlatSkroniowyRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/uklad-czuciowy': typeof UkladCzuciowyRoute
@@ -152,6 +186,7 @@ export interface FileRoutesByFullPath {
   '/uklad-nerwowy-autonomiczny': typeof UkladNerwowyAutonomicznyRoute
   '/uklad-pozapiramidowy': typeof UkladPozapiramidowyRoute
   '/uklad-ruchowy': typeof UkladRuchowyRoute
+  '/wyspa': typeof WyspaRoute
   '/zmysly': typeof ZmyslyRoute
 }
 export interface FileRoutesByTo {
@@ -165,8 +200,12 @@ export interface FileRoutesByTo {
   '/mozdzek': typeof MozdzekRoute
   '/mozgowie-i-rdzen-nerwowy': typeof MozgowieIRdzenNerwowyRoute
   '/nerwy-czaszkowe': typeof NerwyCzaszkoweRoute
-  '/ogolnew': typeof OgolnewRoute
+  '/ogolne': typeof OgolneRoute
   '/pien-mozgu': typeof PienMozguRoute
+  '/plat-ciemieniowy': typeof PlatCiemieniowyRoute
+  '/plat-czolowy': typeof PlatCzolowyRoute
+  '/plat-potyliczny': typeof PlatPotylicznyRoute
+  '/plat-skroniowy': typeof PlatSkroniowyRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/uklad-czuciowy': typeof UkladCzuciowyRoute
@@ -174,6 +213,7 @@ export interface FileRoutesByTo {
   '/uklad-nerwowy-autonomiczny': typeof UkladNerwowyAutonomicznyRoute
   '/uklad-pozapiramidowy': typeof UkladPozapiramidowyRoute
   '/uklad-ruchowy': typeof UkladRuchowyRoute
+  '/wyspa': typeof WyspaRoute
   '/zmysly': typeof ZmyslyRoute
 }
 export interface FileRoutesById {
@@ -188,8 +228,12 @@ export interface FileRoutesById {
   '/mozdzek': typeof MozdzekRoute
   '/mozgowie-i-rdzen-nerwowy': typeof MozgowieIRdzenNerwowyRoute
   '/nerwy-czaszkowe': typeof NerwyCzaszkoweRoute
-  '/ogolnew': typeof OgolnewRoute
+  '/ogolne': typeof OgolneRoute
   '/pien-mozgu': typeof PienMozguRoute
+  '/plat-ciemieniowy': typeof PlatCiemieniowyRoute
+  '/plat-czolowy': typeof PlatCzolowyRoute
+  '/plat-potyliczny': typeof PlatPotylicznyRoute
+  '/plat-skroniowy': typeof PlatSkroniowyRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/uklad-czuciowy': typeof UkladCzuciowyRoute
@@ -197,6 +241,7 @@ export interface FileRoutesById {
   '/uklad-nerwowy-autonomiczny': typeof UkladNerwowyAutonomicznyRoute
   '/uklad-pozapiramidowy': typeof UkladPozapiramidowyRoute
   '/uklad-ruchowy': typeof UkladRuchowyRoute
+  '/wyspa': typeof WyspaRoute
   '/zmysly': typeof ZmyslyRoute
 }
 export interface FileRouteTypes {
@@ -212,8 +257,12 @@ export interface FileRouteTypes {
     | '/mozdzek'
     | '/mozgowie-i-rdzen-nerwowy'
     | '/nerwy-czaszkowe'
-    | '/ogolnew'
+    | '/ogolne'
     | '/pien-mozgu'
+    | '/plat-ciemieniowy'
+    | '/plat-czolowy'
+    | '/plat-potyliczny'
+    | '/plat-skroniowy'
     | '/rdzen-kregowy'
     | '/sitemap.xml'
     | '/uklad-czuciowy'
@@ -221,6 +270,7 @@ export interface FileRouteTypes {
     | '/uklad-nerwowy-autonomiczny'
     | '/uklad-pozapiramidowy'
     | '/uklad-ruchowy'
+    | '/wyspa'
     | '/zmysly'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -234,8 +284,12 @@ export interface FileRouteTypes {
     | '/mozdzek'
     | '/mozgowie-i-rdzen-nerwowy'
     | '/nerwy-czaszkowe'
-    | '/ogolnew'
+    | '/ogolne'
     | '/pien-mozgu'
+    | '/plat-ciemieniowy'
+    | '/plat-czolowy'
+    | '/plat-potyliczny'
+    | '/plat-skroniowy'
     | '/rdzen-kregowy'
     | '/sitemap.xml'
     | '/uklad-czuciowy'
@@ -243,6 +297,7 @@ export interface FileRouteTypes {
     | '/uklad-nerwowy-autonomiczny'
     | '/uklad-pozapiramidowy'
     | '/uklad-ruchowy'
+    | '/wyspa'
     | '/zmysly'
   id:
     | '__root__'
@@ -256,8 +311,12 @@ export interface FileRouteTypes {
     | '/mozdzek'
     | '/mozgowie-i-rdzen-nerwowy'
     | '/nerwy-czaszkowe'
-    | '/ogolnew'
+    | '/ogolne'
     | '/pien-mozgu'
+    | '/plat-ciemieniowy'
+    | '/plat-czolowy'
+    | '/plat-potyliczny'
+    | '/plat-skroniowy'
     | '/rdzen-kregowy'
     | '/sitemap.xml'
     | '/uklad-czuciowy'
@@ -265,6 +324,7 @@ export interface FileRouteTypes {
     | '/uklad-nerwowy-autonomiczny'
     | '/uklad-pozapiramidowy'
     | '/uklad-ruchowy'
+    | '/wyspa'
     | '/zmysly'
   fileRoutesById: FileRoutesById
 }
@@ -279,8 +339,12 @@ export interface RootRouteChildren {
   MozdzekRoute: typeof MozdzekRoute
   MozgowieIRdzenNerwowyRoute: typeof MozgowieIRdzenNerwowyRoute
   NerwyCzaszkoweRoute: typeof NerwyCzaszkoweRoute
-  OgolnewRoute: typeof OgolnewRoute
+  OgolneRoute: typeof OgolneRoute
   PienMozguRoute: typeof PienMozguRoute
+  PlatCiemieniowyRoute: typeof PlatCiemieniowyRoute
+  PlatCzolowyRoute: typeof PlatCzolowyRoute
+  PlatPotylicznyRoute: typeof PlatPotylicznyRoute
+  PlatSkroniowyRoute: typeof PlatSkroniowyRoute
   RdzenKregowyRoute: typeof RdzenKregowyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UkladCzuciowyRoute: typeof UkladCzuciowyRoute
@@ -288,6 +352,7 @@ export interface RootRouteChildren {
   UkladNerwowyAutonomicznyRoute: typeof UkladNerwowyAutonomicznyRoute
   UkladPozapiramidowyRoute: typeof UkladPozapiramidowyRoute
   UkladRuchowyRoute: typeof UkladRuchowyRoute
+  WyspaRoute: typeof WyspaRoute
   ZmyslyRoute: typeof ZmyslyRoute
 }
 
@@ -298,6 +363,13 @@ declare module '@tanstack/react-router' {
       path: '/zmysly'
       fullPath: '/zmysly'
       preLoaderRoute: typeof ZmyslyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wyspa': {
+      id: '/wyspa'
+      path: '/wyspa'
+      fullPath: '/wyspa'
+      preLoaderRoute: typeof WyspaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/uklad-ruchowy': {
@@ -349,6 +421,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RdzenKregowyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/plat-skroniowy': {
+      id: '/plat-skroniowy'
+      path: '/plat-skroniowy'
+      fullPath: '/plat-skroniowy'
+      preLoaderRoute: typeof PlatSkroniowyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plat-potyliczny': {
+      id: '/plat-potyliczny'
+      path: '/plat-potyliczny'
+      fullPath: '/plat-potyliczny'
+      preLoaderRoute: typeof PlatPotylicznyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plat-czolowy': {
+      id: '/plat-czolowy'
+      path: '/plat-czolowy'
+      fullPath: '/plat-czolowy'
+      preLoaderRoute: typeof PlatCzolowyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plat-ciemieniowy': {
+      id: '/plat-ciemieniowy'
+      path: '/plat-ciemieniowy'
+      fullPath: '/plat-ciemieniowy'
+      preLoaderRoute: typeof PlatCiemieniowyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pien-mozgu': {
       id: '/pien-mozgu'
       path: '/pien-mozgu'
@@ -356,11 +456,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PienMozguRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ogolnew': {
-      id: '/ogolnew'
-      path: '/ogolnew'
-      fullPath: '/ogolnew'
-      preLoaderRoute: typeof OgolnewRouteImport
+    '/ogolne': {
+      id: '/ogolne'
+      path: '/ogolne'
+      fullPath: '/ogolne'
+      preLoaderRoute: typeof OgolneRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/nerwy-czaszkowe': {
@@ -447,8 +547,12 @@ const rootRouteChildren: RootRouteChildren = {
   MozdzekRoute: MozdzekRoute,
   MozgowieIRdzenNerwowyRoute: MozgowieIRdzenNerwowyRoute,
   NerwyCzaszkoweRoute: NerwyCzaszkoweRoute,
-  OgolnewRoute: OgolnewRoute,
+  OgolneRoute: OgolneRoute,
   PienMozguRoute: PienMozguRoute,
+  PlatCiemieniowyRoute: PlatCiemieniowyRoute,
+  PlatCzolowyRoute: PlatCzolowyRoute,
+  PlatPotylicznyRoute: PlatPotylicznyRoute,
+  PlatSkroniowyRoute: PlatSkroniowyRoute,
   RdzenKregowyRoute: RdzenKregowyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UkladCzuciowyRoute: UkladCzuciowyRoute,
@@ -456,18 +560,9 @@ const rootRouteChildren: RootRouteChildren = {
   UkladNerwowyAutonomicznyRoute: UkladNerwowyAutonomicznyRoute,
   UkladPozapiramidowyRoute: UkladPozapiramidowyRoute,
   UkladRuchowyRoute: UkladRuchowyRoute,
+  WyspaRoute: WyspaRoute,
   ZmyslyRoute: ZmyslyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
