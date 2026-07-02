@@ -69,7 +69,7 @@ function HomePage() {
                     animation: `fadeInUp 0.5s ease-out ${index * 25}ms both`,
                   }}
                 >
-                  <span className="font-display text-sm font-semibold leading-none text-primary-foreground">
+                  <span className="font-display text-sm leading-none text-primary-foreground">
                     {category.title}
                   </span>
                 </Link>
