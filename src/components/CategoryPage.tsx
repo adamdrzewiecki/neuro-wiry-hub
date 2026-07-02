@@ -24,43 +24,73 @@ export function CategoryPage({ slug }: CategoryPageProps) {
     );
   }
 
+  const hasSubs = category.subcategories.length > 0;
+
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="w-full border-b border-border bg-card/60 backdrop-blur-md">
+      <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-          <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-70">
-            <Brain className="h-6 w-6 text-primary" />
+          <Link to="/" className="flex items-center gap-2.5 transition-opacity hover:opacity-70">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/15">
+              <Brain className="h-5 w-5 text-primary" />
+            </div>
             <span className="text-lg font-semibold tracking-tight text-foreground">Neuro Świry</span>
+          </Link>
+          <Link
+            to="/"
+            className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Wróć
           </Link>
         </div>
       </header>
 
-      <main className="flex flex-1 flex-col items-center justify-center px-4 py-16">
-        <div className="max-w-2xl text-center">
-          <div className="mb-8 inline-flex h-20 w-20 items-center justify-center rounded-3xl bg-primary/10">
-            <Brain className="h-10 w-10 text-primary" />
+      <main className="flex-1 px-4 py-12 sm:px-6 sm:py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+              {category.title}
+            </h1>
+            <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
+              {hasSubs
+                ? "Wybierz podkategorię, aby zobaczyć zawartość."
+                : "Podkategorie dla tej sekcji pojawią się wkrótce."}
+            </p>
           </div>
 
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-            {category.title}
-          </h1>
-
-          <p className="mt-6 text-lg text-muted-foreground">
-            Treści dla tej kategorii pojawią się wkrótce. Przygotowujemy dla Ciebie
-            starannie opracowane materiały i quizy z neuroanatomii.
-          </p>
-
-          <div className="mt-10">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-base font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20"
-            >
-              <ArrowLeft className="h-5 w-5" />
-              Wróć do strony głównej
-            </Link>
-          </div>
+          {hasSubs && (
+            <div className="mt-12 flex flex-wrap justify-center gap-3">
+              {category.subcategories.map((sub, index) => (
+                <Link
+                  key={sub.slug}
+                  to="/$category/$subcategory"
+                  params={{ category: category.slug, subcategory: sub.slug }}
+                  className="group relative inline-flex items-center rounded-[var(--radius)] bg-primary px-4 py-2.5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/25"
+                  style={{
+                    animation: `fadeInUp 0.5s ease-out ${index * 40}ms both`,
+                  }}
+                >
+                  <span className="font-display text-sm leading-none text-primary-foreground">
+                    {sub.title}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </main>
+
+      <footer className="border-t border-border py-6 text-center">
+        <p className="text-sm text-muted-foreground">Neuro Świry — nauka neuroanatomii z pasją</p>
+      </footer>
+
+      <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(12px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </div>
   );
 }

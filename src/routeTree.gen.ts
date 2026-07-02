@@ -34,6 +34,7 @@ import { Route as JadraPodstawyRouteImport } from './routes/jadra-podstawy'
 import { Route as IstotaBialaRouteImport } from './routes/istota-biala'
 import { Route as DrogiNerwoweRouteImport } from './routes/drogi-nerwowe'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CategorySubcategoryRouteImport } from './routes/$category.$subcategory'
 
 const ZmyslyRoute = ZmyslyRouteImport.update({
   id: '/zmysly',
@@ -161,6 +162,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CategorySubcategoryRoute = CategorySubcategoryRouteImport.update({
+  id: '/$category/$subcategory',
+  path: '/$category/$subcategory',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -188,6 +194,7 @@ export interface FileRoutesByFullPath {
   '/uklad-ruchowy': typeof UkladRuchowyRoute
   '/wyspa': typeof WyspaRoute
   '/zmysly': typeof ZmyslyRoute
+  '/$category/$subcategory': typeof CategorySubcategoryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -215,6 +222,7 @@ export interface FileRoutesByTo {
   '/uklad-ruchowy': typeof UkladRuchowyRoute
   '/wyspa': typeof WyspaRoute
   '/zmysly': typeof ZmyslyRoute
+  '/$category/$subcategory': typeof CategorySubcategoryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -243,6 +251,7 @@ export interface FileRoutesById {
   '/uklad-ruchowy': typeof UkladRuchowyRoute
   '/wyspa': typeof WyspaRoute
   '/zmysly': typeof ZmyslyRoute
+  '/$category/$subcategory': typeof CategorySubcategoryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -272,6 +281,7 @@ export interface FileRouteTypes {
     | '/uklad-ruchowy'
     | '/wyspa'
     | '/zmysly'
+    | '/$category/$subcategory'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -299,6 +309,7 @@ export interface FileRouteTypes {
     | '/uklad-ruchowy'
     | '/wyspa'
     | '/zmysly'
+    | '/$category/$subcategory'
   id:
     | '__root__'
     | '/'
@@ -326,6 +337,7 @@ export interface FileRouteTypes {
     | '/uklad-ruchowy'
     | '/wyspa'
     | '/zmysly'
+    | '/$category/$subcategory'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -354,6 +366,7 @@ export interface RootRouteChildren {
   UkladRuchowyRoute: typeof UkladRuchowyRoute
   WyspaRoute: typeof WyspaRoute
   ZmyslyRoute: typeof ZmyslyRoute
+  CategorySubcategoryRoute: typeof CategorySubcategoryRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -533,6 +546,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$category/$subcategory': {
+      id: '/$category/$subcategory'
+      path: '/$category/$subcategory'
+      fullPath: '/$category/$subcategory'
+      preLoaderRoute: typeof CategorySubcategoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -562,6 +582,7 @@ const rootRouteChildren: RootRouteChildren = {
   UkladRuchowyRoute: UkladRuchowyRoute,
   WyspaRoute: WyspaRoute,
   ZmyslyRoute: ZmyslyRoute,
+  CategorySubcategoryRoute: CategorySubcategoryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
