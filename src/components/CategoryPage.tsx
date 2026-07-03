@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, Brain } from "lucide-react";
 import { getCategoryBySlug } from "@/lib/categories";
+import { TestSettings } from "@/components/TestSettings";
 
 interface CategoryPageProps {
   slug: string;
@@ -54,8 +55,8 @@ export function CategoryPage({ slug }: CategoryPageProps) {
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
               {hasSubs
-                ? "Wybierz podkategorię, aby zobaczyć zawartość."
-                : "Podkategorie dla tej sekcji pojawią się wkrótce."}
+                ? "Wybierz podkategorię lub uruchom test z całej kategorii poniżej."
+                : "Uruchom test z pytań z tej kategorii poniżej."}
             </p>
           </div>
 
@@ -78,6 +79,21 @@ export function CategoryPage({ slug }: CategoryPageProps) {
               ))}
             </div>
           )}
+
+          <div className="mt-16">
+            <div className="mx-auto mb-8 max-w-2xl">
+              <p className="text-sm font-medium uppercase tracking-widest text-primary">
+                Ustawienia testu
+              </p>
+              <h2 className="mt-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                Test z całej kategorii
+              </h2>
+            </div>
+            <TestSettings
+              scopeLabel={category.title}
+              scopeHint="Pytania będą losowane z całej kategorii."
+            />
+          </div>
         </div>
       </main>
 
