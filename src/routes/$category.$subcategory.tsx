@@ -4,6 +4,7 @@ import { ArrowLeft, Brain, Search } from "lucide-react";
 import { getCategoryBySlug, getSubcategory } from "@/lib/categories";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Input } from "@/components/ui/input";
 
 export const Route = createFileRoute("/$category/$subcategory")({
   component: SubcategoryPage,
