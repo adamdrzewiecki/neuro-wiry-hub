@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { TestSettings } from "@/components/TestSettings";
 import { Brain } from "lucide-react";
 import { categories } from "@/lib/categories";
 
