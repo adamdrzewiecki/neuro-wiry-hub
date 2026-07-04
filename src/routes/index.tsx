@@ -64,6 +64,23 @@ function HomePage() {
           </div>
         </section>
 
+        <section className="px-4 pb-16 sm:px-6">
+          <div className="mx-auto max-w-4xl">
+            <div className="mx-auto mb-8 max-w-2xl text-center">
+              <p className="text-sm font-medium uppercase tracking-widest text-primary">
+                Ustawienia testu
+              </p>
+              <h2 className="mt-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                Test ze wszystkich kategorii
+              </h2>
+            </div>
+            <TestSettings
+              scopeLabel="Wszystkie kategorie"
+              scopeHint="Pytania będą losowane ze wszystkich kategorii."
+            />
+          </div>
+        </section>
+
       </main>
 
       <footer className="border-t border-border py-6 text-center">
