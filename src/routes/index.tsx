@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Brain } from "lucide-react";
 import { categories } from "@/lib/categories";
 
@@ -21,6 +22,8 @@ function HomePage() {
           </div>
         </div>
       </header>
+
+      <Breadcrumbs />
 
       <main className="flex-1">
         <section className="px-4 pb-6 pt-16 sm:px-6 sm:pt-24">

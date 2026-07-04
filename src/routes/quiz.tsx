@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Brain } from "lucide-react";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const Route = createFileRoute("/quiz")({
   component: QuizPlaceholderPage,
@@ -23,6 +24,8 @@ function QuizPlaceholderPage() {
           </Link>
         </div>
       </header>
+
+      <Breadcrumbs />
 
       <main className="flex flex-1 items-center justify-center px-4">
         <div className="max-w-md text-center">
