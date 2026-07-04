@@ -62,6 +62,8 @@ function SubcategoryPage() {
         </div>
       </header>
 
+      <Breadcrumbs />
+
       <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-12 sm:py-16">
         <div className="mb-10">
           <p className="text-sm font-medium uppercase tracking-widest text-primary">
