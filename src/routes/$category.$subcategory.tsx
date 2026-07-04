@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Brain } from "lucide-react";
 import { getCategoryBySlug, getSubcategory } from "@/lib/categories";
 import { TestSettings } from "@/components/TestSettings";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const Route = createFileRoute("/$category/$subcategory")({
   component: SubcategoryPage,

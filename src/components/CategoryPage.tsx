@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft, Brain } from "lucide-react";
 import { getCategoryBySlug } from "@/lib/categories";
 import { TestSettings } from "@/components/TestSettings";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 interface CategoryPageProps {
   slug: string;
@@ -46,6 +47,8 @@ export function CategoryPage({ slug }: CategoryPageProps) {
           </Link>
         </div>
       </header>
+
+      <Breadcrumbs />
 
       <main className="flex-1 px-4 py-12 sm:px-6 sm:py-16">
         <div className="mx-auto max-w-4xl">
