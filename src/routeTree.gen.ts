@@ -17,6 +17,7 @@ import { Route as UkladLimbicznyRouteImport } from './routes/uklad-limbiczny'
 import { Route as UkladCzuciowyRouteImport } from './routes/uklad-czuciowy'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RdzenKregowyRouteImport } from './routes/rdzen-kregowy'
+import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as PienMozguRouteImport } from './routes/pien-mozgu'
 import { Route as OgolneRouteImport } from './routes/ogolne'
 import { Route as NerwyCzaszkoweRouteImport } from './routes/nerwy-czaszkowe'
@@ -70,6 +71,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const RdzenKregowyRoute = RdzenKregowyRouteImport.update({
   id: '/rdzen-kregowy',
   path: '/rdzen-kregowy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizRoute = QuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PienMozguRoute = PienMozguRouteImport.update({
@@ -151,6 +157,7 @@ export interface FileRoutesByFullPath {
   '/nerwy-czaszkowe': typeof NerwyCzaszkoweRoute
   '/ogolne': typeof OgolneRoute
   '/pien-mozgu': typeof PienMozguRoute
+  '/quiz': typeof QuizRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/uklad-czuciowy': typeof UkladCzuciowyRoute
@@ -174,6 +181,7 @@ export interface FileRoutesByTo {
   '/nerwy-czaszkowe': typeof NerwyCzaszkoweRoute
   '/ogolne': typeof OgolneRoute
   '/pien-mozgu': typeof PienMozguRoute
+  '/quiz': typeof QuizRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/uklad-czuciowy': typeof UkladCzuciowyRoute
@@ -198,6 +206,7 @@ export interface FileRoutesById {
   '/nerwy-czaszkowe': typeof NerwyCzaszkoweRoute
   '/ogolne': typeof OgolneRoute
   '/pien-mozgu': typeof PienMozguRoute
+  '/quiz': typeof QuizRoute
   '/rdzen-kregowy': typeof RdzenKregowyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/uklad-czuciowy': typeof UkladCzuciowyRoute
@@ -223,6 +232,7 @@ export interface FileRouteTypes {
     | '/nerwy-czaszkowe'
     | '/ogolne'
     | '/pien-mozgu'
+    | '/quiz'
     | '/rdzen-kregowy'
     | '/sitemap.xml'
     | '/uklad-czuciowy'
@@ -246,6 +256,7 @@ export interface FileRouteTypes {
     | '/nerwy-czaszkowe'
     | '/ogolne'
     | '/pien-mozgu'
+    | '/quiz'
     | '/rdzen-kregowy'
     | '/sitemap.xml'
     | '/uklad-czuciowy'
@@ -269,6 +280,7 @@ export interface FileRouteTypes {
     | '/nerwy-czaszkowe'
     | '/ogolne'
     | '/pien-mozgu'
+    | '/quiz'
     | '/rdzen-kregowy'
     | '/sitemap.xml'
     | '/uklad-czuciowy'
@@ -293,6 +305,7 @@ export interface RootRouteChildren {
   NerwyCzaszkoweRoute: typeof NerwyCzaszkoweRoute
   OgolneRoute: typeof OgolneRoute
   PienMozguRoute: typeof PienMozguRoute
+  QuizRoute: typeof QuizRoute
   RdzenKregowyRoute: typeof RdzenKregowyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UkladCzuciowyRoute: typeof UkladCzuciowyRoute
@@ -360,6 +373,13 @@ declare module '@tanstack/react-router' {
       path: '/rdzen-kregowy'
       fullPath: '/rdzen-kregowy'
       preLoaderRoute: typeof RdzenKregowyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz': {
+      id: '/quiz'
+      path: '/quiz'
+      fullPath: '/quiz'
+      preLoaderRoute: typeof QuizRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pien-mozgu': {
@@ -469,6 +489,7 @@ const rootRouteChildren: RootRouteChildren = {
   NerwyCzaszkoweRoute: NerwyCzaszkoweRoute,
   OgolneRoute: OgolneRoute,
   PienMozguRoute: PienMozguRoute,
+  QuizRoute: QuizRoute,
   RdzenKregowyRoute: RdzenKregowyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UkladCzuciowyRoute: UkladCzuciowyRoute,

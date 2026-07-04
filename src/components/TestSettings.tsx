@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
 import { Search } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -40,6 +41,7 @@ const COUNT_OPTIONS = [
 ];
 
 export function TestSettings({ scopeLabel, scopeHint }: TestSettingsProps) {
+  const navigate = useNavigate();
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
   const [selectedCount, setSelectedCount] = useState("10");
   const [searchQuery, setSearchQuery] = useState("");
@@ -146,6 +148,7 @@ export function TestSettings({ scopeLabel, scopeHint }: TestSettingsProps) {
         </div>
         <button
           type="button"
+          onClick={() => navigate({ to: "/quiz" })}
           className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-4 text-base font-semibold text-primary-foreground transition-all hover:bg-primary/90"
         >
           Rozpocznij test
