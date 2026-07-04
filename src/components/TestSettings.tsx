@@ -62,16 +62,22 @@ export function TestSettings({ scopeLabel, scopeHint }: TestSettingsProps) {
         {scopeHint && (
           <p className="mt-1 text-sm text-muted-foreground">{scopeHint}</p>
         )}
-        <RadioGroup value={selectedCount} onValueChange={setSelectedCount} className="mt-4 space-y-3">
+        <div className="mt-4 flex flex-wrap gap-2">
           {COUNT_OPTIONS.map((opt) => (
-            <div key={opt.value} className="flex items-center gap-3">
-              <RadioGroupItem value={opt.value} id={`count-${opt.value}`} />
-              <Label htmlFor={`count-${opt.value}`} className="cursor-pointer text-base">
-                {opt.label}
-              </Label>
-            </div>
+            <button
+              key={opt.value}
+              type="button"
+              onClick={() => setSelectedCount(opt.value)}
+              className={`inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition-all ${
+                selectedCount === opt.value
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80"
+              }`}
+            >
+              {opt.label}
+            </button>
           ))}
-        </RadioGroup>
+        </div>
       </section>
 
       <section className="mb-10 rounded-3xl border border-border/60 bg-card p-6 sm:p-8">
