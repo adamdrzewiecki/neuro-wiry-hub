@@ -148,6 +148,7 @@ export function TestSettings({ scopeLabel, scopeHint }: TestSettingsProps) {
         </div>
         <button
           type="button"
+          onClick={() => navigate({ to: "/quiz" })}
           className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-4 text-base font-semibold text-primary-foreground transition-all hover:bg-primary/90"
         >
           Rozpocznij test
