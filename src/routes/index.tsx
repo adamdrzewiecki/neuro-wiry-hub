@@ -37,9 +37,6 @@ function HomePage() {
               Neuro <span className="text-primary">Świry</span>
             </h1>
 
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-              NeuroPsychole zawsze przyjmą z otwartymi aksonami!
-            </p>
           </div>
         </section>
 
