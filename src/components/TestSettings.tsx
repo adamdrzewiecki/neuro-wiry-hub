@@ -41,7 +41,7 @@ const COUNT_OPTIONS = [
 export function TestSettings({ scopeLabel, scopeHint }: TestSettingsProps) {
   const navigate = useNavigate();
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
-  const [selectedCount, setSelectedCount] = useState("10");
+  const [selectedCount, setSelectedCount] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
   const toggleTag = (tag: string) => {
