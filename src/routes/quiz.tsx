@@ -1,14 +1,21 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, Brain, Check, X } from "lucide-react";
+import { z } from "zod";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { MOCK_QUESTIONS, type QuizQuestion } from "@/lib/mock-questions";
+import { fetchManifest, fetchSection, type Question } from "@/lib/quiz-data";
+import { buildPool } from "@/lib/quiz-pool";
+
+const quizSearchSchema = z.object({
+  sections: z.array(z.number().int()).min(1),
+  count: z.union([z.literal(10), z.literal(20), z.literal(30), z.literal(50), z.literal("all")]),
+});
 
 export const Route = createFileRoute("/quiz")({
+  validateSearch: (search) => quizSearchSchema.parse(search),
   component: QuizPage,
-  head: () => ({
-    meta: [{ title: "Quiz — Neuro Świry" }],
-  }),
+  head: () => ({ meta: [{ title: "Quiz — Neuro Świry" }] }),
 });
 
 type AnswerRecord = { questionId: string; selectedIndex: number; correct: boolean };
@@ -16,7 +23,17 @@ type AnswerRecord = { questionId: string; selectedIndex: number; correct: boolea
 const LETTERS = ["A", "B", "C", "D"] as const;
 
 function QuizPage() {
-  const [questions, setQuestions] = useState<QuizQuestion[]>(() => MOCK_QUESTIONS);
+  const { sections, count } = Route.useSearch();
+  const { data: manifest } = useQuery({ queryKey: ["manifest"], queryFn: fetchManifest, staleTime: Infinity });
+  const files = manifest?.sections.filter((s) => sections.includes(s.id)).map((s) => s.file) ?? [];
+  const { data: pool, isLoading } = useQuery({
+    queryKey: ["pool", sections, count],
+    queryFn: async () => buildPool(await Promise.all(files.map(fetchSection)), count),
+    enabled: !!manifest,
+    staleTime: Infinity,
+  });
+  const [questions, setQuestions] = useState<Question[]>([]);
+  useEffect(() => { if (pool) setQuestions(pool); }, [pool]);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [answers, setAnswers] = useState<AnswerRecord[]>([]);
@@ -61,7 +78,7 @@ function QuizPage() {
   };
 
   const restartAll = () => {
-    setQuestions(MOCK_QUESTIONS);
+    if (pool) setQuestions(pool);
     setCurrentIdx(0);
     setSelected(null);
     setAnswers([]);
@@ -89,6 +106,13 @@ function QuizPage() {
   const total = questions.length;
   const percent = total > 0 ? Math.round((correctCount / total) * 100) : 0;
   const progressPct = ((currentIdx + (isAnswered ? 1 : 0)) / total) * 100;
+
+  if (isLoading || !pool) {
+    return <QuizMessage text="Wczytywanie pytań…" />;
+  }
+  if (questions.length === 0) {
+    return <QuizMessage text="Brak pytań dla wybranych działów." homeLink />;
+  }
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -132,6 +156,19 @@ function QuizPage() {
   );
 }
 
+function QuizMessage({ text, homeLink }: { text: string; homeLink?: boolean }) {
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-4 text-center">
+      <p className="text-lg text-muted-foreground">{text}</p>
+      {homeLink && (
+        <Link to="/" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90">
+          <ArrowLeft className="h-4 w-4" /> Wróć do wyboru działów
+        </Link>
+      )}
+    </div>
+  );
+}
+
 function QuestionView({
   question,
   index,
@@ -142,7 +179,7 @@ function QuestionView({
   onNext,
   isLast,
 }: {
-  question: QuizQuestion;
+  question: Question;
   index: number;
   total: number;
   selected: number | null;
@@ -157,7 +194,7 @@ function QuestionView({
   return (
     <div key={question.id} className="animate-in fade-in duration-300">
       <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
-        {question.category}
+        {question.section} › {question.topic}
       </p>
 
       <div className="mt-4 flex items-center justify-between text-sm text-muted-foreground">
@@ -177,7 +214,7 @@ function QuestionView({
       </h1>
 
       <div className="mt-8 space-y-3">
-        {question.answers.map((answer, idx) => {
+        {question.options.map((answer, idx) => {
           const isSelected = selected === idx;
           const isCorrectAns = idx === question.correctIndex;
           let stateClasses =
