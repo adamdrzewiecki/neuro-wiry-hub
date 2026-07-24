@@ -8,7 +8,7 @@ function q(id: string, correct: 0 | 1 | 2 | 3): Question {
     section: "S",
     topic: "T",
     question: "Q?",
-    options: ["a", "b", "c", "d"],
+    options: [`${id}-o0`, `${id}-o1`, `${id}-o2`, `${id}-o3`],
     correctIndex: correct,
     explanation: "",
     tags: [],
@@ -35,10 +35,10 @@ describe("shuffle", () => {
 describe("shuffleOptions", () => {
   it("zachowuje poprawną treść na nowym correctIndex (dla dowolnego rng)", () => {
     for (let seed = 0; seed < 20; seed++) {
-      const original = q("x", 2); // poprawna = "c"
+      const original = q("x", 2); // poprawna = "x-o2"
       const r = shuffleOptions(original, mulberry32(seed));
-      expect(r.options[r.correctIndex]).toBe("c");
-      expect([...r.options].sort()).toEqual(["a", "b", "c", "d"]);
+      expect(r.options[r.correctIndex]).toBe("x-o2");
+      expect([...r.options].sort()).toEqual(["x-o0", "x-o1", "x-o2", "x-o3"]);
     }
   });
 });
@@ -52,11 +52,15 @@ describe("buildPool", () => {
     const pool = buildPool([section(1, 30), section(2, 30)], "all", mulberry32(1));
     expect(pool).toHaveLength(60);
   });
-  it("każde pytanie w puli ma zachowaną poprawną treść po losowaniu opcji", () => {
-    const pool = buildPool([section(1, 8)], "all", mulberry32(3));
+  it("każde pytanie w puli ma zachowaną poprawną treść i zestaw opcji po losowaniu", () => {
+    const sec = section(1, 8);
+    const byId = new Map(sec.questions.map((orig) => [orig.id, orig]));
+    const pool = buildPool([sec], "all", mulberry32(3));
+    expect(pool).toHaveLength(8);
     for (const item of pool) {
-      expect(["a", "b", "c", "d"]).toContain(item.options[item.correctIndex]);
-      expect([...item.options].sort()).toEqual(["a", "b", "c", "d"]);
+      const orig = byId.get(item.id)!;
+      expect(item.options[item.correctIndex]).toBe(orig.options[orig.correctIndex]);
+      expect([...item.options].sort()).toEqual([...orig.options].sort());
     }
   });
 });
