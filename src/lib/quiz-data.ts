@@ -45,3 +45,15 @@ export const sectionDataSchema = z.object({
   questions: z.array(questionSchema),
 });
 export type SectionData = z.infer<typeof sectionDataSchema>;
+
+export async function fetchManifest(): Promise<Manifest> {
+  const res = await fetch("/data/index.json");
+  if (!res.ok) throw new Error(`Nie udało się wczytać manifestu (HTTP ${res.status})`);
+  return manifestSchema.parse(await res.json());
+}
+
+export async function fetchSection(file: string): Promise<SectionData> {
+  const res = await fetch(`/data/${file}`);
+  if (!res.ok) throw new Error(`Nie udało się wczytać działu ${file} (HTTP ${res.status})`);
+  return sectionDataSchema.parse(await res.json());
+}
