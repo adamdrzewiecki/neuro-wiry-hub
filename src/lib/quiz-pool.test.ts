@@ -63,6 +63,20 @@ describe("buildPool", () => {
       expect([...item.options].sort()).toEqual([...orig.options].sort());
     }
   });
+  it("zwraca pustą pulę, gdy brak działów", () => {
+    expect(buildPool([], 10)).toEqual([]);
+  });
+  it("przeplata pytania z różnych działów zamiast układać je blokowo (dział po dziale)", () => {
+    const pool = buildPool([section(1, 5), section(2, 5)], "all", mulberry32(0));
+    const sectionIds = pool.map((question) => question.id.split("-")[0]);
+    // Nie jest to blok: najpierw cały dział 1, potem cały dział 2 (ani odwrotnie).
+    expect(sectionIds).not.toEqual(["1", "1", "1", "1", "1", "2", "2", "2", "2", "2"]);
+    expect(sectionIds).not.toEqual(["2", "2", "2", "2", "2", "1", "1", "1", "1", "1"]);
+    // W pierwszych 4 elementach obecne są pytania z obu działów — realny przeplot.
+    const firstFour = new Set(sectionIds.slice(0, 4));
+    expect(firstFour.has("1")).toBe(true);
+    expect(firstFour.has("2")).toBe(true);
+  });
 });
 
 // deterministyczne rng do testów

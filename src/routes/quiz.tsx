@@ -26,25 +26,26 @@ function QuizPage() {
   const { sections, count } = Route.useSearch();
   const { data: manifest } = useQuery({ queryKey: ["manifest"], queryFn: fetchManifest, staleTime: Infinity });
   const files = manifest?.sections.filter((s) => sections.includes(s.id)).map((s) => s.file) ?? [];
-  const { data: pool, isLoading } = useQuery({
+  const { data: pool, isLoading, error } = useQuery({
     queryKey: ["pool", sections, count],
     queryFn: async () => buildPool(await Promise.all(files.map(fetchSection)), count),
     enabled: !!manifest,
     staleTime: Infinity,
   });
-  const [questions, setQuestions] = useState<Question[]>([]);
-  useEffect(() => { if (pool) setQuestions(pool); }, [pool]);
+  const [override, setOverride] = useState<Question[] | null>(null);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [answers, setAnswers] = useState<AnswerRecord[]>([]);
   const [finished, setFinished] = useState(false);
 
+  const questions = override ?? pool ?? [];
   const current = questions[currentIdx];
   const isAnswered = selected !== null;
   const isLast = currentIdx === questions.length - 1;
 
   const handleSelect = useCallback(
     (idx: number) => {
+      if (!current) return;
       if (isAnswered || finished) return;
       const correct = idx === current.correctIndex;
       setSelected(idx);
@@ -70,7 +71,7 @@ function QuizPage() {
     const wrongIds = new Set(answers.filter((a) => !a.correct).map((a) => a.questionId));
     const next = questions.filter((q) => wrongIds.has(q.id));
     if (next.length === 0) return;
-    setQuestions(next);
+    setOverride(next);
     setCurrentIdx(0);
     setSelected(null);
     setAnswers([]);
@@ -78,7 +79,7 @@ function QuizPage() {
   };
 
   const restartAll = () => {
-    if (pool) setQuestions(pool);
+    setOverride(null);
     setCurrentIdx(0);
     setSelected(null);
     setAnswers([]);
@@ -107,6 +108,9 @@ function QuizPage() {
   const percent = total > 0 ? Math.round((correctCount / total) * 100) : 0;
   const progressPct = ((currentIdx + (isAnswered ? 1 : 0)) / total) * 100;
 
+  if (error) {
+    return <QuizMessage text="Nie udało się wczytać pytań. Odśwież stronę." homeLink />;
+  }
   if (isLoading || !pool) {
     return <QuizMessage text="Wczytywanie pytań…" />;
   }
@@ -373,7 +377,7 @@ function ResultScreen({
           className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition-all hover:bg-muted"
         >
           <ArrowLeft className="h-4 w-4" />
-          Wróć do kategorii
+          Wróć do wyboru działów
         </Link>
         {allCorrect ? (
           <button
