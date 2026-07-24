@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Narzędzie admina: neuro_questions.xlsx -> public/data/index.json + sections/<id>.json.
-Rozszerzenie xlsx_to_csv.py — ta sama logika czytania, wyjście JSON zamiast CSV."""
+Logika czytania oparta na zewnętrznym (legacy) xlsx_to_csv.py z katalogu nadrzędnego
+(poza VCS tego repo) — wyjście tutaj to JSON zamiast CSV."""
 import datetime
 import json
 import re
@@ -27,7 +28,7 @@ def slugify(text: str) -> str:
 
 
 def cell_text(cell) -> str:
-    """Odwraca autokonwersje Excela (liczby, daty). Port z xlsx_to_csv.py."""
+    """Odwraca autokonwersje Excela (liczby, daty). Logika wg zewnętrznego (legacy) xlsx_to_csv.py."""
     v = cell.value
     if v is None:
         return ""
@@ -44,7 +45,7 @@ def cell_text(cell) -> str:
 
 
 def parse_tags(raw: str) -> list[str]:
-    """Forma hashowa lub po przecinku, lowercase, dedup. Port z xlsx_to_csv.py."""
+    """Forma hashowa lub po przecinku, lowercase, dedup. Logika wg zewnętrznego (legacy) xlsx_to_csv.py."""
     if not raw:
         return []
     hashed = re.findall(r"#([^\s#,]+)", raw)
@@ -101,9 +102,13 @@ def main() -> None:
 
     errors: list[str] = []
     letter_warnings: list[str] = []
+    seen_ids: set[str] = set()
     sections_by_id: dict[int, dict] = {}
 
     for (section_no, section_name, topic), sheet in zip(meta, sheets):
+        prefix = re.match(r"^(\d+)\.", sheet)
+        if not prefix or int(prefix.group(1)) != section_no:
+            sys.exit(f"Arkusz '{sheet}' nie pasuje do działu {section_no} ze Struktury")
         ws = wb[sheet]
         topic_slug = slugify(topic)
         section = sections_by_id.setdefault(
@@ -131,6 +136,10 @@ def main() -> None:
                 continue
             if cites_letter(explanation):
                 letter_warnings.append(qid)
+            if qid in seen_ids:
+                errors.append(f"[{qid}] zduplikowane id")
+                continue
+            seen_ids.add(qid)
 
             section["questions"].append({
                 "id": qid,
