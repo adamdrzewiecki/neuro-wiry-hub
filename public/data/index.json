@@ -1,12 +1,12 @@
 {
   "generatedFrom": "neuro_questions.xlsx",
-  "totalQuestions": 3370,
+  "totalQuestions": 3358,
   "sections": [
     {
       "id": 1,
       "slug": "ogolne",
       "title": "Ogólne",
-      "questionCount": 119,
+      "questionCount": 115,
       "file": "sections/1.json",
       "topics": [
         {
@@ -17,7 +17,7 @@
         {
           "slug": "neurohistologia",
           "title": "Neurohistologia",
-          "questionCount": 29
+          "questionCount": 27
         },
         {
           "slug": "osrodki-i-drogi-ukladu-nerwowego",
@@ -27,7 +27,7 @@
         {
           "slug": "rozwoj-ukladu-nerwowego",
           "title": "Rozwój układu nerwowego",
-          "questionCount": 30
+          "questionCount": 28
         }
       ]
     },
@@ -113,7 +113,7 @@
       "id": 4,
       "slug": "kresomozgowie",
       "title": "Kresomózgowie",
-      "questionCount": 238,
+      "questionCount": 237,
       "file": "sections/4.json",
       "topics": [
         {
@@ -149,7 +149,7 @@
         {
           "slug": "platy-mozgu",
           "title": "Płaty mózgu",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "komory-boczne",
@@ -162,13 +162,13 @@
       "id": 5,
       "slug": "miedzymozgowie",
       "title": "Międzymózgowie",
-      "questionCount": 150,
+      "questionCount": 149,
       "file": "sections/5.json",
       "topics": [
         {
           "slug": "wzgorze",
           "title": "Wzgórze",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "podwzgorze",
@@ -249,7 +249,7 @@
       "id": 8,
       "slug": "uklad-limbiczny",
       "title": "Układ limbiczny",
-      "questionCount": 240,
+      "questionCount": 239,
       "file": "sections/8.json",
       "topics": [
         {
@@ -265,7 +265,7 @@
         {
           "slug": "zakret-obreczy",
           "title": "Zakręt obręczy",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "sklepienie",
@@ -283,7 +283,7 @@
       "id": 9,
       "slug": "jadra-podstawy",
       "title": "Jądra podstawy",
-      "questionCount": 178,
+      "questionCount": 176,
       "file": "sections/9.json",
       "topics": [
         {
@@ -309,12 +309,12 @@
         {
           "slug": "polaczenia-jader-podstawy",
           "title": "Połączenia jąder podstawy",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "znaczenie-kliniczne",
           "title": "Znaczenie kliniczne",
-          "questionCount": 30
+          "questionCount": 29
         }
       ]
     },
@@ -356,13 +356,13 @@
       "id": 11,
       "slug": "istota-biala",
       "title": "Istota biała",
-      "questionCount": 179,
+      "questionCount": 178,
       "file": "sections/11.json",
       "topics": [
         {
           "slug": "torebka-wewnetrzna",
           "title": "Torebka wewnętrzna",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "torebka-zewnetrzna",
@@ -503,13 +503,13 @@
       "id": 14,
       "slug": "drogi-nerwowe",
       "title": "Drogi nerwowe",
-      "questionCount": 180,
+      "questionCount": 179,
       "file": "sections/14.json",
       "topics": [
         {
           "slug": "drogi-wstepujace",
           "title": "Drogi wstępujące",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "drogi-zstepujace",
@@ -620,7 +620,7 @@
       "id": 17,
       "slug": "uklad-ruchowy",
       "title": "Układ ruchowy",
-      "questionCount": 179,
+      "questionCount": 178,
       "file": "sections/17.json",
       "topics": [
         {
@@ -631,7 +631,7 @@
         {
           "slug": "drogi-pozapiramidowe",
           "title": "Drogi pozapiramidowe",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "kora-ruchowa",
