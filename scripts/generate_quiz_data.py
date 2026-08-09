@@ -63,6 +63,11 @@ def cites_letter(text: str) -> bool:
     )
 
 
+def is_excluded(raw: str) -> bool:
+    """Kolumna 'Wykluczone': pytanie wadliwe merytorycznie, pomijane przy budowie danych aplikacji."""
+    return raw.strip().lower() in {"tak", "true", "1", "x", "yes"}
+
+
 def build_section_meta(section: dict) -> dict:
     topics = []
     for t in section["topics"]:
@@ -102,6 +107,7 @@ def main() -> None:
 
     errors: list[str] = []
     letter_warnings: list[str] = []
+    excluded_count = 0
     seen_ids: set[str] = set()
     sections_by_id: dict[int, dict] = {}
 
@@ -117,17 +123,20 @@ def main() -> None:
         section["topics"].append({"slug": topic_slug, "title": topic})
 
         for row in range(2, ws.max_row + 1):
-            cells = [ws.cell(row, c) for c in range(1, 10)]
+            cells = [ws.cell(row, c) for c in range(1, 11)]
             vals = [cell_text(c) for c in cells]
             if not any(vals):
                 continue  # pusty wiersz
-            _, question, a, b, c_, d, correct, explanation, tags = vals
+            _, question, a, b, c_, d, correct, explanation, tags, excluded = vals
             qid = f"{section_no}-{topic_slug}-{row}"
 
             if question == "Pytanie" and a == "A":
                 continue  # powtórzony nagłówek (jak w xlsx_to_csv.py)
             if question and not any([a, b, c_, d]):
                 continue  # wiersz-separator / tytuł bloku (jak w xlsx_to_csv.py)
+            if is_excluded(excluded):
+                excluded_count += 1
+                continue  # pytanie wadliwe merytorycznie — nie trafia do quizu
             if not all([question, a, b, c_, d]):
                 errors.append(f"[{qid}] niekompletne pytanie")
                 continue
@@ -182,6 +191,8 @@ def main() -> None:
 
     total_topics = sum(len(s["topics"]) for s in sections)
     print(f"OK: {manifest['totalQuestions']} pytań, {len(sections)} działów, {total_topics} tematów")
+    if excluded_count:
+        print(f"Pominięto {excluded_count} pytań oznaczonych w kolumnie 'Wykluczone'")
     if letter_warnings:
         print(
             f"OSTRZEŻENIE: {len(letter_warnings)} wyjaśnień cytuje litery "

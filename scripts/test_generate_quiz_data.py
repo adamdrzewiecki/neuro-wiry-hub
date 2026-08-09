@@ -5,7 +5,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from generate_quiz_data import slugify, parse_tags, cites_letter, cell_text, build_section_meta
+from generate_quiz_data import slugify, parse_tags, cites_letter, cell_text, build_section_meta, is_excluded
 
 
 def _cell(value, number_format="General"):
@@ -41,6 +41,14 @@ def test_cell_text():
     assert cell_text(_cell(datetime.datetime(2026, 1, 2), "yyyy-mm-dd")) == "2026-01-02"
     assert cell_text(_cell(None)) == ""
     assert cell_text(_cell("  x  ")) == "x"
+
+
+def test_is_excluded():
+    assert is_excluded("TAK") is True
+    assert is_excluded(" tak ") is True
+    assert is_excluded("x") is True
+    assert is_excluded("") is False
+    assert is_excluded("nie") is False
 
 
 def test_build_section_meta():

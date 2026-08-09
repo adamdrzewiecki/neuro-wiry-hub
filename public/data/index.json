@@ -1,6 +1,6 @@
 {
   "generatedFrom": "neuro_questions.xlsx",
-  "totalQuestions": 3389,
+  "totalQuestions": 3370,
   "sections": [
     {
       "id": 1,
@@ -113,7 +113,7 @@
       "id": 4,
       "slug": "kresomozgowie",
       "title": "Kresomózgowie",
-      "questionCount": 240,
+      "questionCount": 238,
       "file": "sections/4.json",
       "topics": [
         {
@@ -134,12 +134,12 @@
         {
           "slug": "kora-mozgu-plat-skroniowy",
           "title": "Kora mózgu - płat skroniowy",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "kora-mozgu-plat-potyliczny",
           "title": "Kora mózgu - płat potyliczny",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "kora-mozgu-wyspa",
@@ -196,7 +196,7 @@
       "id": 6,
       "slug": "pien-mozgu",
       "title": "Pień mózgu",
-      "questionCount": 210,
+      "questionCount": 207,
       "file": "sections/6.json",
       "topics": [
         {
@@ -212,7 +212,7 @@
         {
           "slug": "srodmozgowie",
           "title": "Śródmózgowie",
-          "questionCount": 150
+          "questionCount": 147
         }
       ]
     },
@@ -220,7 +220,7 @@
       "id": 7,
       "slug": "mozdzek",
       "title": "Móżdżek",
-      "questionCount": 120,
+      "questionCount": 118,
       "file": "sections/7.json",
       "topics": [
         {
@@ -231,12 +231,12 @@
         {
           "slug": "kora-mozdzku",
           "title": "Kora móżdżku",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "jadra-mozdzku",
           "title": "Jądra móżdżku",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "drogi-mozdzkowe",
@@ -283,7 +283,7 @@
       "id": 9,
       "slug": "jadra-podstawy",
       "title": "Jądra podstawy",
-      "questionCount": 180,
+      "questionCount": 178,
       "file": "sections/9.json",
       "topics": [
         {
@@ -294,7 +294,7 @@
         {
           "slug": "galka-blada",
           "title": "Gałka blada",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "istota-czarna",
@@ -304,7 +304,7 @@
         {
           "slug": "jadro-niskowzgorzowe",
           "title": "Jądro niskowzgórzowe",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "polaczenia-jader-podstawy",
@@ -322,13 +322,13 @@
       "id": 10,
       "slug": "uklad-pozapiramidowy",
       "title": "Układ pozapiramidowy",
-      "questionCount": 150,
+      "questionCount": 149,
       "file": "sections/10.json",
       "topics": [
         {
           "slug": "elementy-ukladu-pozapiramidowego",
           "title": "Elementy układu pozapiramidowego",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "drogi-pozapiramidowe",
@@ -356,7 +356,7 @@
       "id": 11,
       "slug": "istota-biala",
       "title": "Istota biała",
-      "questionCount": 180,
+      "questionCount": 179,
       "file": "sections/11.json",
       "topics": [
         {
@@ -387,7 +387,7 @@
         {
           "slug": "znaczenie-kliniczne",
           "title": "Znaczenie kliniczne",
-          "questionCount": 30
+          "questionCount": 29
         }
       ]
     },
@@ -395,7 +395,7 @@
       "id": 12,
       "slug": "komory-mozgu",
       "title": "Komory mózgu",
-      "questionCount": 180,
+      "questionCount": 179,
       "file": "sections/12.json",
       "topics": [
         {
@@ -421,7 +421,7 @@
         {
           "slug": "splot-naczyniowkowy",
           "title": "Splot naczyniówkowy",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "plyn-mozgowo-rdzeniowy",
@@ -434,7 +434,7 @@
       "id": 13,
       "slug": "nerwy-czaszkowe",
       "title": "Nerwy czaszkowe",
-      "questionCount": 360,
+      "questionCount": 358,
       "file": "sections/13.json",
       "topics": [
         {
@@ -445,12 +445,12 @@
         {
           "slug": "ii",
           "title": "II",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "iii",
           "title": "III",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "iv",
@@ -542,7 +542,7 @@
       "id": 15,
       "slug": "uklad-nerwowy-autonomiczny",
       "title": "Układ nerwowy autonomiczny",
-      "questionCount": 180,
+      "questionCount": 178,
       "file": "sections/15.json",
       "topics": [
         {
@@ -573,7 +573,7 @@
         {
           "slug": "znaczenie-kliniczne",
           "title": "Znaczenie kliniczne",
-          "questionCount": 30
+          "questionCount": 28
         }
       ]
     },
@@ -620,7 +620,7 @@
       "id": 17,
       "slug": "uklad-ruchowy",
       "title": "Układ ruchowy",
-      "questionCount": 180,
+      "questionCount": 179,
       "file": "sections/17.json",
       "topics": [
         {
@@ -636,7 +636,7 @@
         {
           "slug": "kora-ruchowa",
           "title": "Kora ruchowa",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "motoneuron-gorny",
@@ -659,7 +659,7 @@
       "id": 18,
       "slug": "zmysly",
       "title": "Zmysły",
-      "questionCount": 180,
+      "questionCount": 178,
       "file": "sections/18.json",
       "topics": [
         {
@@ -680,12 +680,12 @@
         {
           "slug": "uklad-wechowy",
           "title": "Układ węchowy",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "uklad-smakowy",
           "title": "Układ smakowy",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "integracja-sensoryczna",
