@@ -20,6 +20,14 @@ dist-ssr
 .wrangler/
 .dev.vars
 
+# Transkrypcja podręcznika Krasuckiego — materiał chroniony prawem autorskim.
+# Prywatny indeks do walidacji pytań, trzymany lokalnie i nieodtwarzany w repo.
+# Odtworzenie: przepisanie skanu ze stron PDF 8-172 (strona PDF = strona książki - 3).
+docs/source-text/
+
+# Kopie zapasowe xlsx sprzed poprawek — poprzednie wersje są w historii gita
+data/*.backup-*.xlsx
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
