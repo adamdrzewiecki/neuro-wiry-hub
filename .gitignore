@@ -28,6 +28,10 @@ docs/source-text/
 # Kopie zapasowe xlsx sprzed poprawek — poprzednie wersje są w historii gita
 data/*.backup-*.xlsx
 
+# Pliki pośrednie potoku walidacji — duże i w całości regenerowalne
+# (scripts/validation/export_topics.py + build_dossiers.py)
+.validation-work/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
