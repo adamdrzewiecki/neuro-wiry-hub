@@ -1,6 +1,6 @@
 {
   "generatedFrom": "neuro_questions.xlsx",
-  "totalQuestions": 3358,
+  "totalQuestions": 3357,
   "sections": [
     {
       "id": 1,
@@ -113,7 +113,7 @@
       "id": 4,
       "slug": "kresomozgowie",
       "title": "Kresomózgowie",
-      "questionCount": 237,
+      "questionCount": 236,
       "file": "sections/4.json",
       "topics": [
         {
@@ -134,7 +134,7 @@
         {
           "slug": "kora-mozgu-plat-skroniowy",
           "title": "Kora mózgu - płat skroniowy",
-          "questionCount": 29
+          "questionCount": 28
         },
         {
           "slug": "kora-mozgu-plat-potyliczny",
