@@ -1,6 +1,6 @@
 {
   "generatedFrom": "neuro_questions.xlsx",
-  "totalQuestions": 3357,
+  "totalQuestions": 3355,
   "sections": [
     {
       "id": 1,
@@ -434,7 +434,7 @@
       "id": 13,
       "slug": "nerwy-czaszkowe",
       "title": "Nerwy czaszkowe",
-      "questionCount": 358,
+      "questionCount": 356,
       "file": "sections/13.json",
       "topics": [
         {
@@ -470,12 +470,12 @@
         {
           "slug": "vii",
           "title": "VII",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "viii",
           "title": "VIII",
-          "questionCount": 30
+          "questionCount": 29
         },
         {
           "slug": "ix",
