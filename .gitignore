@@ -27,10 +27,18 @@ docs/source-text/
 
 # Kopie zapasowe xlsx sprzed poprawek — poprzednie wersje są w historii gita
 data/*.backup-*.xlsx
+data/*_bck.xlsx
 
 # Pliki pośrednie potoku walidacji — duże i w całości regenerowalne
 # (scripts/validation/export_topics.py + build_dossiers.py)
 .validation-work/
+
+# Ślad audytowy walidacji — pola "evidence" zawierają dosłowne cytaty z podręcznika
+# wraz z numerami stron, więc nie trafia do publicznego repo. Kopia poza repo:
+# ../_validation-archive/ oraz lokalna gałąź develop-full (nigdy niepushowana).
+docs/validation/*
+!docs/validation/STATUS.md
+!docs/validation/DECISIONS.md
 
 # Editor directories and files
 .vscode/*
