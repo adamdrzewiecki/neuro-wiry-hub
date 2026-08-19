@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "vitest run",
-    "data:generate": "python3 scripts/generate_quiz_data.py"
+    "data:generate": "python3 scripts/generate_quiz_data.py data/neuro_questions.xlsx"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
