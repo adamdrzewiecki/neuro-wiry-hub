@@ -1,14 +1,14 @@
 # Stan walidacji i co zostało
 
-Stan na 18 sierpnia 2026, gałąź `main` @ `faf8e20`, wypchnięta na
-`github.com/adamdrzewiecki/neuro-wiry-hub`.
+Stan na 19 sierpnia 2026.
 
-**Ślad audytowy walidacji jest poza gitem.** Katalog `docs/validation/` (618 plików) jest
-w `.gitignore` z wyjątkiem tego pliku i `DECISIONS.md` — pola `evidence` cytują podręcznik
-dosłownie wraz z numerami stron, a repo jest publiczne i zasila stronę. Historia `develop`
-została przepisana, żeby usunąć te pliki ze wszystkich commitów, bo pull request niesie
-commity, nie samo drzewo. Pełna historia sprzed zabiegu: lokalna gałąź `develop-full`
-@ `3f5b26a`, nigdy niepushowana. **Nigdy `git push --all`** — wypchnęłoby ją.
+**Ślad audytowy walidacji nie jest w repozytorium.** Sprawdzenie zostawiło 618 plików
+z zapisem każdej pojedynczej decyzji — wersją sprzed zmiany, uzasadnieniem i dowodem.
+Pola `evidence` cytują podręcznik dosłownie, wraz z numerami stron, a repozytorium jest
+publiczne, więc katalog `docs/validation/` jest w `.gitignore` z wyjątkiem tego pliku
+i `DECISIONS.md`. Zapis leży u autora poprawek i jest do wglądu na życzenie — pozwala
+odtworzyć, skąd wzięła się każda z 948 zmian. Pełna historia gita sprzed usunięcia
+katalogu została zachowana lokalnie i nie jest wypychana.
 
 ## Zrobione
 
@@ -31,9 +31,9 @@ Każda zmiana ma w dzienniku wartość sprzed, uzasadnienie i źródło sygnału
 
 ## Zostało — nic z tego nie jest pilne
 
-**Pull request do repo koleżanki.** To repo jest klonem; projekt Lovable podpięty jest do
-jej repozytorium, więc poprawki trafią do strony dopiero przez PR tam. Merge `develop` → `main`
-i push zrobione 18 sierpnia.
+**Przekazanie poprawek do repozytorium źródłowego.** Projekt Lovable synchronizuje się
+z `agatajustyna/neuro-wiry-hub`, więc na stronę poprawki trafią dopiero po scaleniu pull
+requesta tam. Praca powstała w forku `adamdrzewiecki/neuro-wiry-hub`.
 
 **334 ubogie wyjaśnienia** — poprawne merytorycznie, ale nietłumaczące, dlaczego pozostałe
 opcje są błędne. Rozsypane po działach: Mózgowie i rdzeń 103, Międzymózgowie 95,
